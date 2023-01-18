@@ -4,7 +4,7 @@ type Props = {};
 
 const HeadLineCards = (props: Props) => {
   return (
-    <div className="max-w-[1420px] mx-auto p-4 py-12 space-y-5">
+    <div className="max-w-[1420px] mx-auto p-4 py-12 space-y-5 dark:bg-gray-900 mt-12">
        <h1 className="text-center mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">MORE TO READ</h1>
       <div className="grid md:grid-cols-3 gap-6">
         {/* Card */}

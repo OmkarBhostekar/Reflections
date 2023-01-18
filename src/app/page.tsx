@@ -11,20 +11,24 @@ import "./globals.css";
 type Props = {};
 
 const Home = (props: Props) => {
-  // const clickHandler = () => {
-  //   console.log("clicked");
-  //   if (localStorage.theme === "dark") localStorage.theme = "light";
-  //   else localStorage.theme = "dark";
-  //   if (
-  //     localStorage.theme === "dark" ||
-  //     (!("theme" in localStorage) &&
-  //       window.matchMedia("(prefers-color-scheme: dark)").matches)
-  //   ) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // };
+  const clickHandler = () => {
+    console.log("clicked");
+    if (localStorage.theme === "dark") localStorage.theme = "light";
+    else localStorage.theme = "dark";
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  useEffect(() => {
+    clickHandler();
+  }, []);
 
   const [scroll, setScroll] = useState("");
   useEffect(() => {
@@ -44,13 +48,16 @@ const Home = (props: Props) => {
   });
 
   return (
-    <div className="">
-      <div id="progressBarContainer">
-        <div
-          id="progressBar"
-          style={{ transform: `scale(${scroll}, 1)`, opacity: `${scroll}` }}
-        />
+    <div className="max-w-[1420px] mx-auto">
+      <div className="max-w-[1420px] mx-auto flex items-center justify-center">
+        <div id="progressBarContainer" className="w-full">
+          <div
+            id="progressBar"
+            style={{ transform: `scale(${scroll}, 1)`, opacity: `${scroll}` }}
+          />
+        </div>
       </div>
+      {/* <button onClick={clickHandler}>Click me</button> */}
       <Hero />
       <MoreInfo />
       <Recommended />

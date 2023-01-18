@@ -6,12 +6,12 @@ type Props = {};
 
 const Recommended = (props: Props) => {
   return (
-    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
+    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
       <h1 className="text-center mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
         FOR YOU!
       </h1>
 
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-5">
+      <div className="p-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-5">
         {/* <!--Card 1--> */}
         <div className="card-zoom w-full lg:max-w-full lg:flex">
           <div

@@ -25,8 +25,8 @@
 
 html {
   scroll-behavior: smooth;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
+  /* overflow: -moz-scrollbars-none; */
+  /* scrollbar-width: none; */
 }
 
 ::-webkit-scrollbar {
@@ -121,7 +121,7 @@ html {
   z-index: 10;
   background: rgba(255, 255, 255, 0.05);
   width: 100%;
-  top: 57px;
+  top: 62px;
   left: 0;
 }
 
