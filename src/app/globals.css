@@ -39,7 +39,12 @@ html{
 	color: #c19bf5;
 	animation: animate 4s ease-in-out infinite;
 }
-
+*{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
 @keyframes animate {
 	0%,
 	100% {

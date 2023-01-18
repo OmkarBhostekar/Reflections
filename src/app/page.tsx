@@ -26,7 +26,7 @@ const Home = (props: Props) => {
   //   }
   // };
 
-  return <div className="">
+  return <div className="scrollbar-hide">
     <Hero/>
     <MoreInfo/>
     <Recommended/>
