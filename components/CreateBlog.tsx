@@ -26,11 +26,12 @@ const CreateBlogs = (props: Props) => {
   return (
     <div>
      
-      <div className="flex flex-col pl-20 pr-20 pt-10">
-     
+      <div className="flex flex-col pl-20 pr-20 pt-10 rounded ">
+     <div className="bg-slate-50 p-10 border-1 rounded ">  
+
         <input
           type="text"
-          className="text-5xl	 border-hidden	 antialiased	italic border-hidden border-transparent focus:border-transparent mb-10 "
+          className="text-5xl	 border-hidden	w-full antialiased	italicborder-hidden overflow-hidden overflow-scroll border-transparent focus:border-transparent mb-10  bg-slate-50"
           placeholder="Title" onChange={(e) => setTitle(e.target.value)}
         />
 
@@ -79,19 +80,21 @@ const CreateBlogs = (props: Props) => {
             },
             searchBox: {
               border: 'red',
-              'border-bottom': '1px solid blue',
+              'border-bottom': '1px solid transparent',
               'border-radius': '0px'
             }
           }}
          
           
         />
+        
+     
         <div className="grid place-content-center	pt-10">
-        <button className="bg-green-400 rounded-xl m-2 p-1  ">Publish</button>
+        <button className="bg-blue-400 rounded-xl m-4 p-4  hover:bg-green-400">Publish</button>
       </div>
       </div>
       
-        
+      </div>
     </div>
   );
 };
