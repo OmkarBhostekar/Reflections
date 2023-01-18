@@ -31,7 +31,8 @@ export default async function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="wrapper">
+      <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
+      <body className="wrapper dark:bg-[#05091a]">
         <Navbar />
         {children}
       </body>

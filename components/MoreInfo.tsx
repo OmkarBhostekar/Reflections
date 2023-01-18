@@ -4,8 +4,8 @@ type Props = {};
 
 const MoreInfo = (props: Props) => {
   return (
-    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
-      <section className="bg-white dark:bg-gray-900">
+    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
+      <section className="bg-white dark:bg-gray-900 w-full">
         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           {/* <img
             className="w-full dark:hidden"
@@ -22,6 +22,11 @@ const MoreInfo = (props: Props) => {
             src="https://voyager.postman.com/illustration/postman-guest-blogger-illustration.svg"
             alt="dashboard image"
           />
+          <img
+            className="w-full hidden dark:block"
+            src="https://voyager.postman.com/illustration/postman-guest-blogger-illustration.svg"
+            alt="dashboard image"
+          /> 
           <div className="mt-4 md:mt-0">
             <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               A community of writers and thinkers coming together to share their

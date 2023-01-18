@@ -5,7 +5,7 @@ type Props = {}
 
 const Newspaper = (props: Props) => {
   return (
-    <div className='max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4'>
+    <div className='max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 mt-12'>
         <section className="bg-white dark:bg-gray-900">
   <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-md sm:text-center">

@@ -4,9 +4,8 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <div className='"max-w-[1420px] m-auto'>
-        <hr className="h-5"/>  
-      <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
+    <div className="max-w-[1420px] mx-auto flex justify-center items-center dark:bg-gray-900 mt-12"> 
+      <footer className="p-4 w-full bg-white sm:p-6 dark:bg-gray-900">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="https://flowbite.com/" className="flex items-center">
