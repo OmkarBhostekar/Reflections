@@ -8,8 +8,10 @@ export default async function handler(
   const method = req.method;
   switch (method) {
     case "GET":
-      const users = await prisma.user.findMany();
-      res.status(200).json(users);
+      const blogs = await prisma.blog.findMany({
+        take: 10,
+      });
+      res.status(200).json(blogs);
       break;
     case "POST":
       break;

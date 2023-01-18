@@ -32,9 +32,10 @@ export default async function RootLayout({
       */}
       <head />
       <body className="wrapper">
-        <Navbar/>
-        {children}</body>
-        <Footer/>
+        <Navbar />
+        {children}
+      </body>
+      <Footer />
     </html>
   );
 }
