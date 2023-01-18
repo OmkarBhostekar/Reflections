@@ -30,8 +30,11 @@ export default async function RootLayout({
       */}
       <head />
       <body>
-        <Navbar/>
-        {children}</body>
+        <div className="flex flex-col">
+          <Navbar />
+          <div className="mt-12">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
