@@ -8,15 +8,16 @@ datasource db {
 }
 
 model Blog {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Multiple data types found: String: 83.7%, Float: 16.3% out of 1000 sampled entries
-  authors   Json
-  index     Int
-  tags      String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  authors   String
+  index     Int      @unique
+  tags      String[]
   text      String
   timestamp String
   title     String
   url       String
+  authorId  String?  @db.ObjectId
+  user      User?    @relation(fields: [authorId], references: [id])
 }
 
 model User {
@@ -25,8 +26,9 @@ model User {
   createdAt DateTime @db.Date
   email     String
   name      String
-  password  String
   role      String
+  blogIds   String[] @db.ObjectId
+  blogs     Blog[]
   updatedAt DateTime @db.Date
 }
 

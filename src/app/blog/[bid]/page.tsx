@@ -15,10 +15,12 @@ const blogDetail = {
   tags: "Culture Society Book Review Trends Algorithms",
   image: "https://miro.medium.com/max/1400/0*UPrR_YckGORrt5LF",
 };
-import Speech from "react-speech";
 
-const BlogDetail = (props: Props) => {
+const BlogDetail = ({ params }: any) => {
   const play = () => {};
+  const bid = params["bid"];
+  console.log(params["bid"]);
+
   return (
     <div>
       <div className="flext flex-col flex-grow max-w-3xl ml-0 sm:ml-[75px] xl:ml-[370px]">
