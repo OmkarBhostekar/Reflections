@@ -3,6 +3,8 @@ import { unstable_getServerSession } from "next-auth/next";
 import { getProviders } from "next-auth/react";
 import Login from "components/Login";
 import Navbar from "components/Navbar";
+import Script from "next/script";
+import Footer from "components/Footer";
 
 export default async function RootLayout({
   children,
@@ -29,9 +31,10 @@ export default async function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className="wrapper">
         <Navbar/>
         {children}</body>
+        <Footer/>
     </html>
   );
 }

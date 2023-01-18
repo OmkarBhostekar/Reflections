@@ -1,5 +1,9 @@
 "use client";
+import HeadLineCards from "components/HeadlineCards";
+import Hero from "components/Hero";
 import Latest from "components/Latest";
+import MoreInfo from "components/MoreInfo";
+import Newspaper from "components/Newspaper";
 import Recommended from "components/Recommended";
 import React from "react";
 import "./globals.css";
@@ -23,8 +27,12 @@ const Home = (props: Props) => {
   // };
 
   return <div className="">
-    <Latest/>
+    <Hero/>
+    <MoreInfo/>
     <Recommended/>
+    <Latest/>
+    <HeadLineCards/>
+    <Newspaper/>
   </div>;
 };
 

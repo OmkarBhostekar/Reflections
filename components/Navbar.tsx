@@ -5,9 +5,9 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div>
+    <div className="max-w-[1420px] mx-auto flex justify-center items-center p-4">
       <Nav
-        fluid={true}
+        // fluid={true}
         rounded={true}
         className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
       >
@@ -19,7 +19,7 @@ const Navbar = (props: Props) => {
               alt="Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Blogs
+              Reflections
             </span>
           </Nav.Brand>
 
@@ -113,10 +113,10 @@ const Navbar = (props: Props) => {
 
           <Nav.Toggle />
           <Nav.Collapse>
-            <Nav.Link href="/navbars">About</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/navbars">Services</Nav.Link>
             <Nav.Link href="/navbars">Pricing</Nav.Link>
-            <Nav.Link href="/navbars">Contact</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav.Collapse>
         </div>
       </Nav>
