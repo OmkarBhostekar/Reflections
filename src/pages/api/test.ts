@@ -9,7 +9,7 @@ export default async function handler(
   switch (method) {
     case "GET":
       const blogs = await prisma.blog.findMany({
-        limit: 10,
+        take: 10,
       });
       res.status(200).json(blogs);
       break;
