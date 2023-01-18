@@ -4,12 +4,12 @@ import { prisma } from "../../../utils/db";
 const getBlogById = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  bid: number
+  bid: string
 ) => {
   try {
     const blog = await prisma.blog.findUnique({
       where: {
-        index: bid,
+        id: bid,
       },
     });
     if (!blog) res.status(404).json({ message: "Blog not found" });
@@ -26,7 +26,7 @@ export default async function handler(
 ) {
   const method = req.method;
   const { bid } = req.query;
-  const blogId = parseInt(bid as string);
+  const blogId = bid as string;
   switch (method) {
     case "GET":
       getBlogById(req, res, blogId);

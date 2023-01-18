@@ -31,8 +31,10 @@ export default async function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="wrapper">
-        <Navbar />
+      <body className="wrapper flex flex-col">
+        <div className="fixed w-screen bg-white z-10">
+          <Navbar />
+        </div>
         {children}
       </body>
       <Footer />

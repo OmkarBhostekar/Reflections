@@ -26,7 +26,7 @@ const Navbar = (props: Props) => {
           <div className="hidden flex items-center md:block md:order-2">
             <button
               type="button"
-              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" 
+              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
@@ -43,12 +43,16 @@ const Navbar = (props: Props) => {
 
           <Nav.Toggle />
           <Nav.Collapse>
-            <Nav.Link className="text-blue-600 md:hidden" href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link className="text-blue-600 md:hidden" href="/dashboard">
+              Dashboard
+            </Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/navbars">Services</Nav.Link>
             <Nav.Link href="/navbars">Pricing</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
-            <Nav.Link className="text-red-600 md:hidden" href="/contact">Log Out</Nav.Link>
+            <Nav.Link className="text-red-600 md:hidden" href="/contact">
+              Log Out
+            </Nav.Link>
           </Nav.Collapse>
         </div>
       </Nav>
