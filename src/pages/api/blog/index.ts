@@ -55,7 +55,37 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
             timestamp: true,
             url: true,
           },
-          where: {},
+          where: {
+            title: {
+              contains: q,
+            },
+          },
+          skip: (page - 1) * 10,
+          take: 10,
+          orderBy: {
+            timestamp: "desc",
+          },
+        }),
+        prisma.blog.count({
+          where: {
+            title: {
+              contains: q,
+            },
+          },
+        }),
+      ]);
+    } else {
+      blogs = await prisma.$transaction([
+        prisma.blog.findMany({
+          select: {
+            id: true,
+            index: true,
+            title: true,
+            text: true,
+            tags: true,
+            timestamp: true,
+            url: true,
+          },
           skip: (page - 1) * 10,
           take: 10,
           orderBy: {
