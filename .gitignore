@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 /scrapper
+/ml/*.csv
+/ml/*.pkl
+/ml/__pycache__
+/ml/.ipynb_checkpoints
 
 # testing
 /coverage

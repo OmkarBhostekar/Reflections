@@ -1,19 +1,27 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../utils/db";
 
-const getBlogById = async (
-  req: NextApiRequest,
-  res: NextApiResponse,
-  bid: string
-) => {
+const createUser = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const blog = await prisma.blog.findUnique({
+    const { name, email, avatar } = req.body;
+    const userExists = await prisma.user.findUnique({
       where: {
-        id: bid,
+        // @ts-ignore
+        email: email,
       },
     });
-    if (!blog) res.status(404).json({ message: "Blog not found" });
-    else res.status(200).json(blog);
+    if (userExists) {
+      res.status(400).json({ message: "User already exists" });
+      return;
+    }
+    const user = await prisma.user.create({
+      data: {
+        name: name,
+        email: email,
+        avatar: avatar,
+      },
+    });
+    res.status(200).json(user);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal server error" });
@@ -25,13 +33,11 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const method = req.method;
-  const { bid } = req.query;
-  const blogId = bid as string;
   switch (method) {
     case "GET":
-      getBlogById(req, res, blogId);
       break;
     case "POST":
+      creatUser(req, res);
       break;
     case "PATCH":
       break;

@@ -7,29 +7,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type Comment {
+  text      String
+  sentiment String
+}
+
 model Blog {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
   authors   String
-  index     Int      @unique
+  index     Int
   tags      String[]
   text      String
   timestamp String
   title     String
   url       String
-  authorId  String?  @db.ObjectId
-  user      User?    @relation(fields: [authorId], references: [id])
+  authorId  String?   @db.ObjectId
+  user      User?     @relation(fields: [authorId], references: [id])
+  comments  Comment[]
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  avatar    String
-  createdAt DateTime @db.Date
-  email     String
-  name      String
-  role      String
-  blogIds   String[] @db.ObjectId
-  blogs     Blog[]
-  updatedAt DateTime @db.Date
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  avatar String
+  email  String
+  name   String
+  role   String
+  blogs  Blog[]
 }
 
 model test {

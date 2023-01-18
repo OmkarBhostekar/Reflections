@@ -1,12 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @layer base {
   body {
     @apply bg-white dark:bg-black;
-    font-family: "Roboto", sans-serif;
   }
 }
 
@@ -14,133 +12,128 @@
   .card-zoom {
     @apply hover:scale-105 transition-all ease-in-out duration-200;
   }
-}
-
-@layer components {
-  .card-zoom {
-    @apply hover:scale-105 transition-all ease-in-out duration-200;
+  .new-line {
+    white-space: pre-wrap;
   }
 }
-/* 
-@layer components {
+
+/* @layer components {
   .wrapper {
     @apply max-w-[1420px] mx-auto flex justify-center items-center p-4;
   }
 } */
 
-html{
+html {
   scroll-behavior: smooth;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
+  /* overflow: -moz-scrollbars-none; */
+  /* scrollbar-width: none; */
 }
 
-::-webkit-scrollbar{
-	display: none;
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* Reflection animation */
 
 .content {
-	position: relative;
+  position: relative;
 }
 
 .content h2 {
-	color: #fff;
-	font-size: 8em;
-	position: absolute;
+  color: #fff;
+  font-size: 8em;
+  position: absolute;
   transform: translateY(-100%);
 }
 
 .content h2:nth-child(1) {
-	color: transparent;
-	-webkit-text-stroke: 2px #8338ec;
+  color: transparent;
+  -webkit-text-stroke: 2px #8338ec;
 }
 
 .content h2:nth-child(2) {
-	color: #c19bf5;
-	animation: animate 4s ease-in-out infinite;
+  color: #c19bf5;
+  animation: animate 4s ease-in-out infinite;
 }
 
-@media (max-width : 1024px) {
-	body{
-		/* background: #000; */
-	}
-	.content h2 {
-		font-size: 6em;
-	}
+@media (max-width: 1024px) {
+  body {
+    /* background: #000; */
+  }
+  .content h2 {
+    font-size: 6em;
+  }
 }
 
-@media (max-width : 768px) {
-	body{
-		/* background: #000; */
-	}
-	.content h2 {
-		font-size: 3em;
-	}
+@media (max-width: 768px) {
+  body {
+    /* background: #000; */
+  }
+  .content h2 {
+    font-size: 3em;
+  }
 }
 
-@media (max-width : 552px) {
-	body{
-		/* background: #000; */
-	}
-	.content h2 {
-		font-size: 2em;
-	}
+@media (max-width: 552px) {
+  body {
+    /* background: #000; */
+  }
+  .content h2 {
+    font-size: 2em;
+  }
 }
 
 @keyframes animate {
-	0%,
-	100% {
-		clip-path: polygon(
-			0% 45%,
-			16% 44%,
-			33% 50%,
-			54% 60%,
-			70% 61%,
-			84% 59%,
-			100% 52%,
-			100% 100%,
-			0% 100%
-		);
-	}
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
 
-	50% {
-		clip-path: polygon(
-			0% 60%,
-			15% 65%,
-			34% 66%,
-			51% 62%,
-			67% 50%,
-			84% 45%,
-			100% 46%,
-			100% 100%,
-			0% 100%
-		);
-	}
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
 }
-
 
 /* Scroll Progress Tracker */
 
 #progressBarContainer {
-    position: fixed;
-    z-index: 10;
-    background: rgba(255,255,255,0.05);
-    width: 100%;
-    top: 57px;
-    left: 0;
+  position: fixed;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  top: 62px;
+  left: 0;
 }
-  
-  
+
 #progressBar {
-    background: linear-gradient(to left, #5430ff, #49adff);
-    transform-origin: top left;
-    transform: scale(0,0);
-    opacity: 0;
-	border-radius: 50px;
+  background: linear-gradient(to left, #5430ff, #49adff);
+  transform-origin: top left;
+  transform: scale(0, 0);
+  opacity: 100;
+  border-radius: 50px;
 }
 
 #progressBarContainer,
 #progressBar {
-    height: 5px;
+  height: 5px;
 }
