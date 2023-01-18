@@ -55,14 +55,11 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
             timestamp: true,
             url: true,
           },
+          where: {},
           skip: (page - 1) * 10,
           take: 10,
           orderBy: {
-            _relevance: {
-              fields: ["title"],
-              search: q,
-              sort: "desc",
-            },
+            timestamp: "desc",
           },
         }),
         prisma.blog.count(),
