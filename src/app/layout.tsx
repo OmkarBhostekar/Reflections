@@ -2,6 +2,7 @@ import "./globals.css";
 import { unstable_getServerSession } from "next-auth/next";
 import { getProviders } from "next-auth/react";
 import Login from "components/Login";
+import Navbar from "components/Navbar";
 
 export default async function RootLayout({
   children,
@@ -28,7 +29,9 @@ export default async function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <Navbar/>
+        {children}</body>
     </html>
   );
 }

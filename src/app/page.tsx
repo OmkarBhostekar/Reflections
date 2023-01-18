@@ -1,4 +1,6 @@
 "use client";
+import Latest from "components/Latest";
+import Recommended from "components/Recommended";
 import React from "react";
 import "./globals.css";
 
@@ -20,7 +22,10 @@ const Home = (props: Props) => {
   //   }
   // };
 
-  return <div className=""></div>;
+  return <div className="">
+    <Latest/>
+    <Recommended/>
+  </div>;
 };
 
 export default Home;
