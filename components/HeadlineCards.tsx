@@ -8,7 +8,7 @@ const HeadLineCards = (props: Props) => {
        <h1 className="text-center mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">MORE TO READ</h1>
       <div className="grid md:grid-cols-3 gap-6">
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/25 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">
@@ -26,7 +26,7 @@ const HeadLineCards = (props: Props) => {
           />
         </div>
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">
@@ -44,7 +44,7 @@ const HeadLineCards = (props: Props) => {
           />
         </div>
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">
@@ -62,7 +62,7 @@ const HeadLineCards = (props: Props) => {
           />
         </div>
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">
@@ -80,7 +80,7 @@ const HeadLineCards = (props: Props) => {
           />
         </div>
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">
@@ -98,7 +98,7 @@ const HeadLineCards = (props: Props) => {
           />
         </div>
         {/* Card */}
-        <div className="rounded-xl relative">
+        <div className="rounded-xl relative card-zoom">
           {/* Overlay */}
           <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
             <p className="font-bold text-2xl px-2 pt-4">

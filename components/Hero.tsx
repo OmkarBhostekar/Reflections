@@ -6,7 +6,7 @@ const Hero = (props: Props) => {
   return (
     <div className="max-w-[1420px] mx-auto flex justify-center items-center p-4 h-screen">
       <section className="bg-white dark:bg-gray-900">
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto space-x-12 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="flex flex-col max-w-screen-xl space-y-12 px-4 py-8 mx-auto space-x-12 lg:grid lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7 content">
             <h2 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
             Reflections
@@ -15,7 +15,7 @@ const Hero = (props: Props) => {
             Reflections
             </h2>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Reflecting on different topics and ideas is an important part of blogging, and this name is a great choice for a website that encourages personal reflection.
+              Discover the power of storytelling: How writing on your blog can change the world.
             </p>
             <a
               href="#"
@@ -42,7 +42,7 @@ const Hero = (props: Props) => {
               Speak to Sales
             </a>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="self-center lg:mt-0 lg:col-span-5 lg:flex">
             {/* <img
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
               alt="mockup"
