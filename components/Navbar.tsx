@@ -5,11 +5,11 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div className="max-w-[1420px] mx-auto flex justify-center items-center p-4">
+    <div className="max-w-[1420px] mx-auto flex justify-center items-center">
       <Nav
         // fluid={true}
         rounded={true}
-        className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 border-b border-gray-200 dark:border-gray-600"
+        className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 static w-full z-20 border-b border-gray-200 dark:border-gray-600"
       >
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Nav.Brand href="/" className="flex items-center cursor-pointer">
