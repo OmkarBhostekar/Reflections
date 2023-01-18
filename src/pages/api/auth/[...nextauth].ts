@@ -56,15 +56,9 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, profile }) {
-      // check if user exists in database
-      console.log("user", user);
-      console.log("profile", profile);
-      //   await createIfNotExists(user.name, user.email, user.image);
       return true;
     },
     async session({ session, token }) {
-      console.log(session);
-
       //   session.user.uid = token.sub;
       //   const user = await createIfNotExists(
       //     session.user.name,

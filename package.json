@@ -28,7 +28,11 @@
     "prisma": "^4.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+<<<<<<< HEAD
     "tailwind-scrollbar-hide": "^1.1.7",
+=======
+    "react-speech": "^1.0.2",
+>>>>>>> dfb5c5bc8a172c885a2b7ab3a9e958c7c6885837
     "typescript": "4.9.4"
   },
   "devDependencies": {
