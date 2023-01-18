@@ -11,12 +11,12 @@ const Latest = (props: Props) => {
             LATEST BLOGS
           </h1>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            We use an agile approach to test assumptions and connect with the
-            needs of your audience early and often.
+            Welcome to our latest blog section! Here you'll find the most recent
+            posts from our community of bloggers.
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <article className="card-zoom p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
               <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                 <svg
@@ -69,7 +69,7 @@ const Latest = (props: Props) => {
               </a>
             </div>
           </article>
-          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <article className="card-zoom p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
               <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                 <svg
@@ -105,7 +105,9 @@ const Latest = (props: Props) => {
                   src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                   alt="Bonnie Green avatar"
                 />
-                <span className="font-medium dark:text-white">Bonnie Green</span>
+                <span className="font-medium dark:text-white">
+                  Bonnie Green
+                </span>
               </div>
               <a
                 href="#"
