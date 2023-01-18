@@ -118,7 +118,7 @@ html {
 
 #progressBarContainer {
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   background: rgba(255, 255, 255, 0.05);
   width: 100%;
   top: 62px;
@@ -129,7 +129,7 @@ html {
   background: linear-gradient(to left, #5430ff, #49adff);
   transform-origin: top left;
   transform: scale(0, 0);
-  opacity: 0;
+  opacity: 100;
   border-radius: 50px;
 }
 

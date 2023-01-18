@@ -54,6 +54,11 @@ const BlogDetail = ({ params }: any) => {
     return () => window.removeEventListener("scroll", progressBarHandler);
   });
 
+  const formatDate = (date: string) => {
+    const d = new Date(date);
+    return d.toDateString();
+  };
+
   return (
     <div className="flex flex-col">
       <div id="progressBarContainer">
@@ -64,16 +69,16 @@ const BlogDetail = ({ params }: any) => {
       </div>
       <div className="flext flex-col flex-grow max-w-3xl ml-[20px] mr-[20px] xl:ml-[370px]">
         <div className="mt-20 flex flex-row items-center cursor-pointer">
-          <ChevronLeftIcon className="h-4 w-4 text-blue-500" />
+          <ChevronLeftIcon className="h-4 w-4 text-blue-500 dark:text-white" />
           <div
             onClick={() => router.back()}
-            className="ml-2 text-md font-bold text-blue-500"
+            className="ml-2 text-md font-bold text-blue-500 dark:text-white"
           >
             Back to home
           </div>
         </div>
         <div className="mt-6">
-          {blog && blog.tags.length > 0 && (
+          {blog && blog.tags && blog.tags.length > 0 && (
             <img
               src={`https://source.unsplash.com/random/?${blog?.tags.join(
                 ","
@@ -86,16 +91,47 @@ const BlogDetail = ({ params }: any) => {
         <div className="flex">
           {/* <Speech text="Welcome to react speech" /> */}
         </div>
-        <div className="flex flex-row mt-4">
+        <div className="flex flex-row mt-6">
           {blog &&
             blog.tags.map((tag) => (
-              <span className="px-4 py-1.5 mr-2 rounded-full text-blue-500 bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease">
+              <span className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease">
                 {tag}
               </span>
             ))}
         </div>
-        <div className="mt-4 md:text-5xl text-3xl font-bold">{blog?.title}</div>
-        <div className="mt-6 text-justify new-line">{blog?.text}</div>
+        <div className="mt-4 md:text-5xl text-3xl font-bold dark:text-white">
+          {blog?.title}
+        </div>
+        <div className="mt-8 dark:text-[#D1CFDB] text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at cursus
+          metus, a efficitur diam. Ut vitae lectus erat. Donec dictum ligula
+          erat, in interdum lacus ultricies nec. Mauris nec tortor a dui
+          scelerisque pellentesque non at nulla. Nullam lacinia elit sed gravida
+          rutrum. Donec ut tortor tristique, efficitur leo ullamcorper, accumsan
+          risus. Pellentesque vestibulum dolor lorem, volutpat rhoncus elit
+          accumsan vel. Aliquam sodales sem ac tellus aliquet, vitae blandit mi
+          consectetur. Etiam euismod ipsum eget elit commodo luctus et eget
+          velit. Phasellus maximus eget ligula vel posuere.
+        </div>
+        <div className="flex mt-8">
+          <img
+            className="h-20 w-20 rounded-full"
+            src={`https://api.dicebear.com/5.x/personas/svg?seed=${blog?.authors}}`}
+          />
+          <div className="flex flex-col justify-evenly ml-4">
+            <div className=""></div>
+            <div className="uppercase dark:text-white font-semibold">
+              {blog?.authors}
+            </div>
+            <div className="dark:text-[#D1CFDB] font-semibold">
+              {formatDate(blog.timestamp)}
+            </div>
+          </div>
+        </div>
+        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+        <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">
+          {blog?.text}
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ type Blog = {
   url: string;
   image: string;
   comments: Comment[];
+  authors: string;
 };
 
 export default Blog;
