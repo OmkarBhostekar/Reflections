@@ -54,8 +54,9 @@ const BlogDetail = ({ params }: any) => {
     return () => window.removeEventListener("scroll", progressBarHandler);
   });
 
-  const formatDate = (date: string) => {
-    const d = new Date(date);
+  const formatDate = (date: string | undefined) => {
+    if (data === undefined) return "";
+    const d = new Date(date!);
     return d.toDateString();
   };
 
@@ -124,7 +125,7 @@ const BlogDetail = ({ params }: any) => {
               {blog?.authors}
             </div>
             <div className="dark:text-[#D1CFDB] font-semibold">
-              {formatDate(blog.timestamp)}
+              {formatDate(blog?.timestamp)}
             </div>
           </div>
         </div>
