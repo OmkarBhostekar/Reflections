@@ -15,15 +15,6 @@ export default async function RootLayout({
   const providers = await getProviders();
   console.log(session);
 
-  if (!true)  // session
-    return (
-      <html>
-        <head></head>
-        <body>
-          <Login providers={providers} />
-        </body>
-      </html>
-    );
   return (
     <html lang="en">
       {/*
@@ -34,7 +25,7 @@ export default async function RootLayout({
       <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
       <body className="wrapper flex flex-col dark:bg-[#05091a]">
         <div className="fixed w-screen bg-white dark:bg-[#05091a] z-10">
-          <Navbar />
+          <Navbar session={session} />
         </div>
         {children}
       </body>

@@ -1,17 +1,16 @@
 "use client";
-import Cards from "components/Cards/Cards";
-import Mountain from "../../../../assets/mountain.jpg";
-import River from "../../../../assets/river.jpg";
-
-import Latest from "components/Latest";
-import Recommended from "components/Recommended";
-import UserCard from "components/UserCard";
+import Mountain from "../../../assets/mountain.jpg";
+import Forest from "../../../assets/forest.jpg";
+import River from "../../../assets/river.jpg";
+import Cards from "../../../components/Cards/Cards";
+// import UserCard from "components/UserCard";
 import React from "react";
+import UserCard from "components/UserCard";
 type Props = {};
-
-const Profile = (props: Props) => {
+const Dashboard = (props: Props) => {
   const size = 1;
   const userId = "PrateekID";
+  const user = "Prateek";
   const blogs = [
     {
       img: Mountain.src,
@@ -91,4 +90,4 @@ const Profile = (props: Props) => {
   );
 };
 
-export default Profile;
+export default Dashboard;

@@ -33,25 +33,25 @@ const MenuBar = ({ editor }) => {
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={editor.isActive("bold") ? "is_active" : ""}
         >
-          <FaBold />
+          <FaBold className="text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={editor.isActive("italic") ? "is_active" : ""}
         >
-          <FaItalic />
+          <FaItalic className="text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={editor.isActive("underline") ? "is_active" : ""}
         >
-          <FaUnderline />
+          <FaUnderline className="text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleStrike().run()}
           className={editor.isActive("strike") ? "is_active" : ""}
         >
-          <FaStrikethrough />
+          <FaStrikethrough className="text-sm"/>
         </button>
         <button
           onClick={() =>
@@ -61,7 +61,7 @@ const MenuBar = ({ editor }) => {
             editor.isActive("heading", { level: 2 }) ? "is_active" : ""
           }
         >
-          <FaHeading />
+          <FaHeading className="text-sm"/>
         </button>
         <button
           onClick={() =>
@@ -71,33 +71,33 @@ const MenuBar = ({ editor }) => {
             editor.isActive("heading", { level: 3 }) ? "is_active" : ""
           }
         >
-          <FaHeading className="heading3" />
+          <FaHeading className="heading3 text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive("bulletList") ? "is_active" : ""}
         >
-          <FaListUl />
+          <FaListUl className="text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive("orderedList") ? "is_active" : ""}
         >
-          <FaListOl />
+          <FaListOl className="text-sm"/>
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editor.isActive("blockquote") ? "is_active" : ""}
         >
-          <FaQuoteLeft />
+          <FaQuoteLeft className="text-sm"/>
         </button>
       </div>
       <div>
         <button onClick={() => editor.chain().focus().undo().run()}>
-          <FaUndo />
+          <FaUndo className="text-sm"/>
         </button>
         <button onClick={() => editor.chain().focus().redo().run()}>
-          <FaRedo />
+          <FaRedo className="text-sm"/>
         </button>
       </div>
     </div>

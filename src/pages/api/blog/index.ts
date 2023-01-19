@@ -58,6 +58,7 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
           where: {
             title: {
               contains: q,
+              mode: "insensitive",
             },
           },
           skip: (page - 1) * 20,
@@ -70,6 +71,7 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
           where: {
             title: {
               contains: q,
+              mode: "insensitive",
             },
           },
         }),

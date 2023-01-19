@@ -23,21 +23,19 @@ const CreateBlogs = (props: Props) => {
   // dark mode
 
   return (
-    <div>
-      <div className="flex flex-col pl-20 pr-20 pt-10 rounded ">
-        <div className="bg-slate-50 p-10 border-1 rounded dark:bg-gray-800 dark:text-white ">
-          <input
-            type="text"
-            className="text-5xl	 dark:bg-gray-800  border-hidden	w-full antialiased	italicborder-hidden overflow-hidden overflow-scroll border-transparent focus:border-transparent mb-10  bg-slate-50"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          />
+    <div className="md:w-[90%] max-w-[1420px] mx-auto bg-slate-50 mt-16 p-4 md:p-10 border-1 rounded dark:bg-gray-800 dark:text-white ">
+      <input
+        type="text"
+        className="text-3xl	md:text-4xl dark:bg-gray-800  border-hidden	w-full antialiased	italicborder-hidden overflow-hidden overflow-scroll border-transparent focus:border-transparent mb-10  bg-slate-50"
+        placeholder="Title"
+        onChange={(e) => setTitle(e.target.value)}
+      />
 
-          {/* <textarea 
+      {/* <textarea 
           className="text-2xl	antialiased	 border-hidden border-transparent focus:border-transparent "
           placeholder="Content"
         ></textarea> */}
-          {/* <JoditEditor 
+      {/* <JoditEditor 
           ref={editor}
           value={content}
           onChange={(newContent) => setContent(newContent)}
@@ -86,12 +84,10 @@ const CreateBlogs = (props: Props) => {
             }}
           />
 
-          <div className="grid place-content-center	pt-10">
-            <button className="bg-blue-400 rounded-xl m-4 p-4  hover:bg-green-400">
-              Publish
-            </button>
-          </div>
-        </div>
+      <div className="grid place-content-center	pt-10">
+        <button className="px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+          Publish
+        </button>
       </div>
     </div>
   );

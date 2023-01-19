@@ -15,16 +15,6 @@ const SearchResult = (props: Props) => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   console.log(search);
 
-  useEffect(() => {
-    const goToTop = () => {
-      window.scrollTo({
-        top: 400,
-        behavior: "smooth",
-      });
-    };
-    goToTop();
-  }, []);
-
   const fetchBlogs = async (q: string) => {
     fetch(`/api/blog?q=${q}&page=1`)
       .then((res) => res.json())
@@ -32,6 +22,13 @@ const SearchResult = (props: Props) => {
   };
 
   useEffect(() => {
+    const goToTop = () => {
+      window.scrollTo({
+        top: 400,
+        behavior: "smooth",
+      });
+    }
+    goToTop();
     if (search) {
       fetchBlogs(search);
     }

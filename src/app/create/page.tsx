@@ -6,9 +6,7 @@ import React from "react";
 type Props = {};
 
 const CreateBlog = (props: Props) => {
-  return <div className="">
-    <CreateBlogs/>
-  </div>;
+  return <CreateBlogs/>
 };
 
 export default CreateBlog;

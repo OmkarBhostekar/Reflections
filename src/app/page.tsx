@@ -68,8 +68,8 @@ const Home = (props: Props) => {
       </div>
       {/* <button onClick={clickHandler}>Click me</button> */}
       <Hero />
-      <SearchBar onSearch={onSearch} />
       <MoreInfo />
+      <SearchBar onSearch={onSearch}/>
       <Recommended />
       <Latest />
       <HeadLineCards />

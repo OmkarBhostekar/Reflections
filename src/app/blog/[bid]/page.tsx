@@ -6,8 +6,8 @@ import Image from "next/image";
 import Blog from "@/types/Blog";
 import { useRouter } from "next/navigation";
 import { TextToSpeech, useTts } from "tts-react";
-import type { TTSHookProps } from "tts-react";
 import parse from "html-react-parser";
+import Link from "next/link";
 type Props = {};
 
 const blogDetail = {
@@ -129,12 +129,12 @@ const BlogDetail = ({ params }: any) => {
         </div>
         <div className="flex flex-row mt-6">
           {blog &&
-            blog.tags.map((tag, id) => (
+            blog?.tags?.map((tag, id) => (
               <span
                 key={id}
                 className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
               >
-                {tag}
+                <Link href={`/blogs?category=${tag}`}>{tag}</Link>
               </span>
             ))}
         </div>
@@ -161,11 +161,7 @@ const BlogDetail = ({ params }: any) => {
         <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">
           {/*  */}
           <div>
-            
-          
-
-            <TextToSpeech 
-               
+            <TextToSpeech
               align="vertical"
               allowMuting
               markBackgroundColor="#55AD66"
@@ -185,7 +181,6 @@ const BlogDetail = ({ params }: any) => {
               volume={1}
             >
               {blog?.text}
-              
             </TextToSpeech>
           </div>
         </div>
