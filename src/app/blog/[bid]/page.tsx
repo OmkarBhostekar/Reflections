@@ -5,7 +5,9 @@ import { ChevronLeftIcon, PlayIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Blog from "@/types/Blog";
 import { useRouter } from "next/navigation";
-
+import { TextToSpeech, useTts } from "tts-react";
+import type { TTSHookProps } from "tts-react";
+import parse from "html-react-parser";
 type Props = {};
 
 const blogDetail = {
@@ -157,7 +159,35 @@ const BlogDetail = ({ params }: any) => {
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
         <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">
-          {blog?.text}
+          {/*  */}
+          <div>
+            
+          
+
+            <TextToSpeech 
+               
+              align="vertical"
+              allowMuting
+              markBackgroundColor="#55AD66"
+              markColor="white"
+              markTextAsSpoken
+              onBoundary={function noRefCheck() {}}
+              onEnd={function noRefCheck() {}}
+              onError={function noRefCheck() {}}
+              onPause={function noRefCheck() {}}
+              onPitchChange={function noRefCheck() {}}
+              onRateChange={function noRefCheck() {}}
+              onStart={function noRefCheck() {}}
+              onVolumeChange={function noRefCheck() {}}
+              position="topLeft"
+              rate={1.5}
+              size="medium"
+              volume={1}
+            >
+              {blog?.text}
+              
+            </TextToSpeech>
+          </div>
         </div>
         <div className="mt-8">
           <div className="text-2xl font-bold dark:text-white">
