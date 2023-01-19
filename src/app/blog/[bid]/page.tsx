@@ -6,7 +6,6 @@ import Image from "next/image";
 import Blog from "@/types/Blog";
 import { useRouter } from "next/navigation";
 import { TextToSpeech, useTts } from "tts-react";
-import type { TTSHookProps } from "tts-react";
 import parse from "html-react-parser";
 import Link from "next/link";
 type Props = {};
