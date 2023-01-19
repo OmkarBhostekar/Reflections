@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { TextToSpeech, useTts } from "tts-react";
 import type { TTSHookProps } from "tts-react";
 import parse from "html-react-parser";
+import Link from "next/link";
 type Props = {};
 
 const blogDetail = {
@@ -134,7 +135,7 @@ const BlogDetail = ({ params }: any) => {
                 key={id}
                 className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
               >
-                {tag}
+                <Link href={`/blogs?category=${tag}`}>{tag}</Link>
               </span>
             ))}
         </div>
