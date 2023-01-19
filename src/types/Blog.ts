@@ -1,6 +1,8 @@
 type Comment = {
   text: string;
   sentiment: string;
+  author: string;
+  authorImage: string;
 };
 type Blog = {
   id: string;

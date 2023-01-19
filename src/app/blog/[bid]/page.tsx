@@ -179,7 +179,7 @@ const BlogDetail = ({ params }: any) => {
               onStart={function noRefCheck() {}}
               onVolumeChange={function noRefCheck() {}}
               position="topLeft"
-              rate={1.5}
+              rate={1}
               size="medium"
               volume={1}
             >

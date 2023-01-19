@@ -23,6 +23,7 @@ const createIfNotExists = async (
         name: name,
         email: email,
         avatar: avatar,
+        role: "user",
       },
     });
     return res;
@@ -46,7 +47,12 @@ export const authOptions = {
   callbacks: {
     async signIn({ user, profile }) {
       console.log("user", user);
-      await createIfNotExists(user.name, user.email, user.image);
+      const newUser = await createIfNotExists(
+        user.name,
+        user.email,
+        user.image
+      );
+      user.id = newUser.id;
       return true;
     },
     async session({ session, token }) {

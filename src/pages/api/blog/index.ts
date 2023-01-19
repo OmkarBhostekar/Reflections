@@ -110,17 +110,17 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const createBlog = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { title, text, tags, author, userId } = req.body;
+    const { title, text, tags, author, authorImage } = req.body;
     const blog = await prisma.blog.create({
       data: {
         index: 1000000 + Math.floor(Math.random() * 1000000),
         title: title,
         text: text,
         tags: tags,
-        timestamp: new Date(),
+        timestamp: new Date().toISOString(),
         url: "",
+        authorImage: authorImage,
         authors: author,
-        authorId: userId,
       },
     });
     res.status(200).json(blog);

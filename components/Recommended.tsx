@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Mountain from "../assets/mountain.jpg";
 import Forest from "../assets/forest.jpg";
 import River from "../assets/river.jpg";
 import Cards from "./Cards/Cards";
 type Props = {
-  bid?:string
+  bid?: string;
 };
 type Blog = {
   img: string;
@@ -15,10 +15,10 @@ type Blog = {
   autherImg: string;
   autherName: string;
   dateOfPost: string;
-}
+};
 const Recommended = (props: Props) => {
   const router = useRouter();
-  const [recs, setRecs] = useState([])
+  const [recs, setRecs] = useState<Blog[]>([]);
   const bid = props.bid;
   const fetchRecs = async () => {
     if (bid) {
@@ -31,28 +31,29 @@ const Recommended = (props: Props) => {
         });
     }
   };
-  useEffect(()=>{
-    fetchRecs()
-  },[bid])
+  useEffect(() => {
+    fetchRecs();
+  }, [bid]);
 
   const onRecClick = (id: string) => {
     router.push(`/blog/${id}`);
   };
 
-  console.log(recs)
   return (
-    Array.isArray(recs) && 
-    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
-      <h1 className="text-center mt-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-        FOR YOU!
-      </h1>
+    Array.isArray(recs) && (
+      <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
+        <h1 className="text-center mt-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+          Recommended Just For You!
+        </h1>
 
-      <div className="p-4 gap-y-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-8 md:gap-y-12">
-        {/* <!--Card 1--> */}
+        <div className="p-4 gap-y-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-8 md:gap-y-12">
+          {/* <!--Card 1--> */}
 
-        {recs?.length>0 && Array.isArray(recs) && recs?.map((rec:any) => {
-          return (
-            <div className="" key={rec.id}>
+          {recs?.length > 0 &&
+            Array.isArray(recs) &&
+            recs?.map((rec: any) => {
+              return (
+                <div className="" key={rec.id}>
                   <div
                     onClick={() => onRecClick(rec.id)}
                     className="flex flex-col w-full hover:scale-110 ease-in duration-300 cursor-pointer"
@@ -79,10 +80,11 @@ const Recommended = (props: Props) => {
                     </div>
                   </div>
                 </div>
-          );
-        })}
+              );
+            })}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

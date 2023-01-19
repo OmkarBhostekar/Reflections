@@ -8,22 +8,25 @@ datasource db {
 }
 
 type Comment {
-  text      String
-  sentiment String
+  text        String
+  sentiment   String
+  author      String @default("")
+  authorImage String @default("")
 }
 
 model Blog {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  authors   String
-  index     Int
-  tags      String[]
-  text      String
-  timestamp String
-  title     String
-  url       String
-  authorId  String?   @db.ObjectId
-  user      User?     @relation(fields: [authorId], references: [id])
-  comments  Comment[]
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  authors     String
+  index       Int
+  tags        String[]
+  text        String
+  timestamp   String
+  title       String
+  url         String
+  authorImage String    @default("")
+  authorId    String?   @db.ObjectId
+  user        User?     @relation(fields: [authorId], references: [id])
+  comments    Comment[]
 }
 
 model User {
