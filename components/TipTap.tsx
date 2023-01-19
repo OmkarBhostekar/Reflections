@@ -1,11 +1,12 @@
-'use strict'
+"use client";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
-import { Color } from '@tiptap/extension-color'
-import TextStyle from '@tiptap/extension-text-style'
+import { Color } from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
+import useSpeechToText from "react-hook-speech-to-text";
 
-import './styles.css'
+import "./styles.css";
 import {
   FaBold,
   FaHeading,
@@ -18,9 +19,9 @@ import {
   FaUnderline,
   FaUndo,
 } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const MenuBar = ({ editor }) => {
-    
   if (!editor) {
     return null;
   }
@@ -103,28 +104,79 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-export const Tiptap = ({ }) => {
+export const Tiptap = ({}) => {
+  const [text, setText] = useState("");
+  const [flag, setFlag] = useState<boolean>(false);
+  const {
+    error,
+    interimResult,
+    isRecording,
+    results,
+    startSpeechToText,
+    stopSpeechToText,
+  } = useSpeechToText({
+    continuous: true,
+    useLegacyResults: false,
+  });
 
+ 
 
+  if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
+  
   const editor = useEditor({
-    extensions: [StarterKit, Underline,TextStyle, Color],
+    extensions: [StarterKit, Underline, TextStyle, Color],
     content: ``,
     
 
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-      
+
       console.log(html);
     },
   });
+
+  useEffect(() => {
+    if (interimResult) {
+      const html = editor.getHTML(); + interimResult;
+
+      const dat =  interimResult;
+
+      console.log(dat);
+      editor.chain().focus('end').createParagraphNear().insertContent(dat).run()
+      // editor?.
+    }
+  }, [interimResult]);
+
   return (
-    <div className="textEditor">
-      <MenuBar editor={editor} />
-      <EditorContent className='dark:bg-black dark:text-black' editor={editor} />
+    <div>
+      <h1>Recording: {isRecording.toString()}</h1>
+      <button className="p-2 bg-gray-500" onClick={isRecording ? stopSpeechToText : startSpeechToText}>
+        {isRecording ? "Stop Recording" : "Start Recording"}
+      </button>
+      <button onClick={() =>{
+        setFlag(!flag)
+      }} className="space-x-4 px-2">toggle</button>
+
+      <div className="textEditor">
+        <MenuBar editor={editor} />
+        <EditorContent
+          className="dark:bg-black dark:text-black"
+          editor={editor}
+        />
+        <div>
+          <h2>Results</h2>
+          <h1>{}</h1>
+          <ul>
+            {results.map((result) => (
+              <li key={result.timestamp}>{result.transcript}</li>
+              // editor?.setOptions({ content: result.transcript })
+             
+            ))}
+            {interimResult && <li>{interimResult}</li>}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
-function useState<T>(arg0: string): [any, any] {
-    throw new Error("Function not implemented.");
-}

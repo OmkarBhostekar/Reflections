@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.0.13",
     "@next/font": "13.1.2",
     "@prisma/client": "^4.9.0",
+    "@speechly/speech-recognition-polyfill": "github:speechly/speech-recognition-polyfill",
     "@tiptap/extension-color": "^2.0.0-beta.209",
     "@tiptap/extension-text-style": "^2.0.0-beta.209",
     "@tiptap/extension-underline": "^2.0.0-beta.209",
@@ -37,14 +38,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
+    "react-hook-speech-to-text": "^0.8.0",
     "react-icons": "^4.7.1",
     "react-speech": "^1.0.2",
+    "react-speech-recognition": "^3.10.0",
     "recoil": "^0.7.6",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tts-react": "^1.2.0",
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@types/react-speech-recognition": "^3.9.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"

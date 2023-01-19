@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import Multiselect from "multiselect-react-dropdown";
-import JoditEditor from "jodit-react";
-import { text } from "stream/consumers";
 import { Tiptap } from "./TipTap";
 
 type Props = {};
@@ -51,6 +49,8 @@ const CreateBlogs = (props: Props) => {
         /> */}
 
           <Tiptap  />
+
+          
           <Multiselect
             className="mt-10 dark:bg-gray-800 dark:text-black "
             isObject={false}
