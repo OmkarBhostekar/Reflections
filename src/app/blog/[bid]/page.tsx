@@ -161,11 +161,7 @@ const BlogDetail = ({ params }: any) => {
         <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">
           {/*  */}
           <div>
-            
-          
-
-            <TextToSpeech 
-               
+            <TextToSpeech
               align="vertical"
               allowMuting
               markBackgroundColor="#55AD66"
@@ -185,7 +181,6 @@ const BlogDetail = ({ params }: any) => {
               volume={1}
             >
               {blog?.text}
-              
             </TextToSpeech>
           </div>
         </div>

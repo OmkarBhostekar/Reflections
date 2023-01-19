@@ -93,7 +93,9 @@ const page = ({ providers }: Props) => {
                       className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
                       <FcGoogle className="text-2xl" />
-                      <div className="ml-2">Login with Google</div>
+                      <div className="ml-2  font-semibold">
+                        Continue With Google
+                      </div>
                     </button>
                   ) : (
                     <button
@@ -101,7 +103,9 @@ const page = ({ providers }: Props) => {
                       className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
                       <BsGithub className="text-xl" />
-                      <div className="ml-2">Login with Github</div>
+                      <div className="ml-2 font-semibold">
+                        Continue With Github
+                      </div>
                     </button>
                   )
                 )}
