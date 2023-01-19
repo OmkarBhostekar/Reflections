@@ -23,6 +23,7 @@ const createIfNotExists = async (
         name: name,
         email: email,
         avatar: avatar,
+        role: "user",
       },
     });
     return res;
