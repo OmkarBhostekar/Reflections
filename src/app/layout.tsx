@@ -15,7 +15,7 @@ export default async function RootLayout({
   const providers = await getProviders();
   console.log(session);
 
-  if (!session)
+  if (!true)  // session
     return (
       <html>
         <head></head>

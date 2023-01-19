@@ -40,10 +40,10 @@ html {
 }
 
 .content h2 {
-  color: #fff;
-  font-size: 8em;
-  position: absolute;
-  transform: translateY(-100%);
+	color: #fff;
+	font-size: 8em;
+	position: absolute;
+  	transform: translateY(-100%);
 }
 
 .content h2:nth-child(1) {
@@ -121,7 +121,7 @@ html {
   z-index: 20;
   background: rgba(255, 255, 255, 0.05);
   width: 100%;
-  top: 62px;
+  top: 61px;
   left: 0;
 }
 
@@ -135,5 +135,5 @@ html {
 
 #progressBarContainer,
 #progressBar {
-  height: 5px;
+    height: 5px;
 }
