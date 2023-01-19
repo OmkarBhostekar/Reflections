@@ -11,7 +11,7 @@ const createIfNotExists = async (
   email: string,
   avatar: string
 ) => {
-  const userExists = await prisma.user.findUnique({
+  const userExists = await prisma.user.findFirst({
     where: {
       email: email,
     },

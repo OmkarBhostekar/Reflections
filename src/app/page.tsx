@@ -60,8 +60,8 @@ const Home = (props: Props) => {
       </div>
       {/* <button onClick={clickHandler}>Click me</button> */}
       <Hero />
-      <SearchBar/>
       <MoreInfo />
+      <SearchBar/>
       <Recommended />
       <Latest />
       <HeadLineCards />
