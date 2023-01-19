@@ -35,6 +35,7 @@
     "next": "13.1.2",
     "next-auth": "^4.18.8",
     "prisma": "^4.8.1",
+    "prosemirror-keymap": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",

@@ -5,10 +5,10 @@ import Underline from "@tiptap/extension-underline";
 import { Color } from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
 import useSpeechToText from "react-hook-speech-to-text";
-
+import   parse  from 'html-react-parser'
 import "./styles.css";
 import {
-  FaBold,
+  FaBold, 
   FaHeading,
   FaItalic,
   FaListOl,
@@ -19,7 +19,7 @@ import {
   FaUnderline,
   FaUndo,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -119,8 +119,11 @@ export const Tiptap = ({}) => {
     useLegacyResults: false,
   });
 
-  // if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
+ 
+  const count = useRef(0);
 
+  // if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
+  
   const editor = useEditor({
     extensions: [StarterKit, Underline, TextStyle, Color],
     content: ``,
@@ -133,15 +136,15 @@ export const Tiptap = ({}) => {
   });
   useEffect(() => {
     if (interimResult) {
-      const html = editor.getHTML(); + interimResult;
-
-      const dat =  interimResult;
-
-      console.log(dat);
-      editor.chain().focus('end').createParagraphNear().insertContent(dat).run()
-      // editor?.
+      const dat = interimResult;
+      const da:any= count
+      const d = parse(da.current.innerHTML)
+      // console.log(da.toString());
+      console.log(d);
+      // editor.chain().focus('end').createParagraphNear().insertContent('some content').run()
+      //  editor.chain().focus('end').createParagraphNear().insertContent(result.transcript).run()
     }
-  }, [interimResult]);
+  }, [interimResult,flag]);
 
   return (
     <div>
@@ -170,10 +173,13 @@ export const Tiptap = ({}) => {
         <div>
           <h2>Results</h2>
           <h1>{}</h1>
-          <ul>
+          <ul ref={count}>
             {results.map((result) => (
               <li key={result.timestamp}>{result.transcript}</li>
               // editor?.setOptions({ content: result.transcript })
+              // <li key={result.timestamp}>{result.transcript}</li> 
+              
+            
             ))}
             {interimResult && <li>{interimResult}</li>}
           </ul>
