@@ -5,6 +5,7 @@ import Latest from "components/Latest";
 import MoreInfo from "components/MoreInfo";
 import Newspaper from "components/Newspaper";
 import Recommended from "components/Recommended";
+import SearchBar from "components/SearchBar";
 import React, { useEffect, useState } from "react";
 import "./globals.css";
 
@@ -59,6 +60,7 @@ const Home = (props: Props) => {
       </div>
       {/* <button onClick={clickHandler}>Click me</button> */}
       <Hero />
+      <SearchBar/>
       <MoreInfo />
       <Recommended />
       <Latest />

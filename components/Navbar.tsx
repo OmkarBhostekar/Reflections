@@ -65,14 +65,15 @@ const Navbar = (props: Props) => {
 
           <Nav.Toggle className="ml-auto" />
           <Nav.Collapse className="m-auto">
-            <Nav.Link className="text-blue-600 md:hidden" href="/dashboard">
+            <Nav.Link className="text-blue-600 dark:text-blue-600 md:hidden" href="/dashboard">
               Dashboard
             </Nav.Link>
+            <Nav.Link className="text-blue-600 dark:text-blue-600 hidden md:block" href="/dashboard">Dashboard</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/navbars">Services</Nav.Link>
-            <Nav.Link href="/navbars">Pricing</Nav.Link>
+            <Nav.Link href="/trending">Trending</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
-            <Nav.Link className="text-red-600 md:hidden" href="/contact">
+            <Nav.Link className="text-red-600 dark:text-red-600 hidden md:block" href="/" >Log Out</Nav.Link>
+            <Nav.Link className="text-red-600 dark:text-red-600 md:hidden" href="/">
               Log Out
             </Nav.Link>
           </Nav.Collapse>

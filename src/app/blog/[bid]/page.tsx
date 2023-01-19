@@ -81,9 +81,9 @@ const BlogDetail = ({ params }: any) => {
           </div>
         </div>
         <div className="mt-6">
-          {blog && blog.tags && blog.tags.length > 0 && (
+          {blog && blog?.tags && blog?.tags?.length > 0 && (
             <img
-              src={`https://source.unsplash.com/random/?${blog?.tags.join(
+              src={`https://source.unsplash.com/random/?${blog?.tags?.join(
                 ","
               )}`}
               alt=""
@@ -96,7 +96,7 @@ const BlogDetail = ({ params }: any) => {
         </div>
         <div className="flex flex-row mt-6">
           {blog &&
-            blog.tags.map((tag, id) => (
+            blog?.tags?.map((tag, id) => (
               <span key={id} className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease">
                 {tag}
               </span>
