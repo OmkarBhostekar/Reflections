@@ -1,14 +1,23 @@
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import Multiselect from "multiselect-react-dropdown";
 import SpeechToText from "./SpeechToText";
+import CreateBlog from "@/app/create/page";
+import { Session } from "next-auth";
+import { useRouter } from "next/navigation";
 
-type Props = {};
+type Props = {
+  session: Session | null;
+};
 
 const CreateBlogs = (props: Props) => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
   const [message, setMessage] = useState("");
   const [next, setNext] = useState([]);
+  const [errorText, setErrorText] = useState("");
+  const [loading, setLoading] = useState(false);
+  let categories: string[] = [];
+  const router = useRouter();
 
   const onMessageUpdated = (message: string) => {
     setMessage(message);
@@ -43,6 +52,58 @@ const CreateBlogs = (props: Props) => {
     setNext([]);
   };
 
+  const createBlog = async (
+    title: string,
+    message: string,
+    categories: string[]
+  ) => {
+    const author = props.session?.user?.name;
+    const authorImage = props.session?.user?.image;
+    console.log(author, authorImage);
+    fetch("/api/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        text: message,
+        tags: categories,
+        author: author,
+        authorImage: authorImage,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        router.push(`/blog/${data.id}`);
+      });
+  };
+
+  const onPublish = async () => {
+    let error = "";
+    if (title === "") {
+      error = "Title cannot be empty";
+    } else if (message === "") {
+      error = "Message cannot be empty";
+    } else if (message.length < 100) {
+      error = "Message should be atleast 100 characters long";
+    } else if (categories.length === 0) {
+      error = "Please select atleast one category";
+    }
+    if (error !== "") {
+      setTimeout(() => {
+        setErrorText("");
+      }, 3000);
+      setErrorText(error);
+      return;
+    }
+    if (!loading) {
+      setLoading(true);
+      createBlog(title, message, categories);
+    }
+  };
+
   return (
     <div className="md:w-[90%] max-w-[1420px] mx-auto border-none focus:ring-0 bg-slate-50 mt-20 p-4 md:p-10 border-1 rounded dark:bg-gray-800 dark:text-white ">
       <input
@@ -72,18 +133,115 @@ const CreateBlogs = (props: Props) => {
         className="mt-10 dark:bg-gray-800 dark:text-black "
         isObject={false}
         onKeyPressFn={function noRefCheck() {}}
-        onRemove={function noRefCheck(e) {
-          console.log(e);
+        onRemove={(selectedList, selectedItem) => {
+          categories = categories.filter((item) => item !== selectedItem);
         }}
         onSearch={function noRefCheck() {}}
-        onSelect={function noRefCheck() {}}
+        onSelect={(selectedList, selectedItem) => {
+          categories.push(selectedItem);
+        }}
         showCheckbox={true}
         options={[
-          "Adevnture",
-          "Computer",
-          "Machin Learnign",
+          "Data Science",
+          "Programming",
+          "Poetry",
+          "Machine Learning",
+          "Covid 19",
+          "Life",
+          "Python",
+          "Technology",
+          "Startup",
+          "Writing",
+          "Life Lessons",
+          "Love",
+          "Self Improvement",
+          "Business",
+          "Software Development",
+          "Relationships",
+          "Blockchain",
+          "Politics",
+          "Cryptocurrency",
           "Artificial Intelligence",
-          "Information Technology",
+          "JavaScript",
+          "Mental Health",
+          "Health",
+          "Coronavirus",
+          "History",
+          "Entrepreneurship",
+          "Self",
+          "Humor",
+          "Culture",
+          "Education",
+          "Leadership",
+          "Creativity",
+          "Marketing",
+          "Design",
+          "Women",
+          "Web Development",
+          "Bitcoin",
+          "Productivity",
+          "Fiction",
+          "Christmas",
+          "Data Visualization",
+          "Music",
+          "Family",
+          "Personal Development",
+          "Deep Learning",
+          "Social Media",
+          "Science",
+          "Travel",
+          "Money",
+          "Finance",
+          "Short Story",
+          "UX",
+          "Coding",
+          "React",
+          "Psychology",
+          "News",
+          "Inspiration",
+          "Spirituality",
+          "Parenting",
+          "Work",
+          "Data",
+          "Self-awareness",
+          "Art",
+          "Christianity",
+          "Writing Tips",
+          "Tech",
+          "Baby",
+          "2020",
+          "LGBTQ",
+          "Books",
+          "Society",
+          "Motivation",
+          "Ethereum",
+          "Defi",
+          "Investing",
+          "Film",
+          "Software Engineering",
+          "Food",
+          "Pandemic",
+          "Lifestyle",
+          "Crypto",
+          "Trump",
+          "DevOps",
+          "Movies",
+          "Poem",
+          "AI",
+          "Equality",
+          "Racism",
+          "Development",
+          "Careers",
+          "Philosophy",
+          "Advice",
+          "Entertainment",
+          "Mindfulness",
+          "Gaming",
+          "Learning",
+          "Freelancing",
+          "Poetry On Medium",
+          "Personal Growth",
+          "Success",
         ]}
         style={{
           chips: {
@@ -101,9 +259,17 @@ const CreateBlogs = (props: Props) => {
       />
 
       <div className="grid place-content-center	pt-10">
-        <button className="px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+        <button
+          onClick={onPublish}
+          className="px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+        >
           Publish
         </button>
+        {errorText !== "" && (
+          <div className="text-xs mt-2 text-red-500 w-full mx-auto">
+            {errorText}
+          </div>
+        )}
       </div>
     </div>
   );
