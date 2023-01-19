@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Cardss from "components/Cards/Cardss";
 import Blog from "@/types/Blog";
 type Props = {};
 
-const CategoryPage = (props:Props) => {
+const CategoryPage = (props: Props) => {
   const searchQuery = useSearchParams();
   const params = useSearchParams();
   const search = params.get("category");
@@ -14,7 +14,7 @@ const CategoryPage = (props:Props) => {
   console.log(search);
 
   const fetchBlogs = async (q: string) => {
-    fetch(`/api/blog?q=${q}&page=1`)
+    fetch(`/api/category?category=${q}&page=1`)
       .then((res) => res.json())
       .then((data) => setBlogs(data.blogs));
   };
@@ -25,7 +25,7 @@ const CategoryPage = (props:Props) => {
         top: 400,
         behavior: "smooth",
       });
-    }
+    };
     goToTop();
     if (search) {
       fetchBlogs(search);
@@ -53,11 +53,10 @@ const CategoryPage = (props:Props) => {
             </p>
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
-          {blogs && blogs.map((blog, id) => {
-            return (
-              <Cardss key={id} blog={blog}/>
-            );
-          })}
+            {blogs &&
+              blogs.map((blog, id) => {
+                return <Cardss key={id} blog={blog} />;
+              })}
           </div>
         </div>
       </section>
