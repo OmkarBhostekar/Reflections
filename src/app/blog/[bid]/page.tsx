@@ -23,6 +23,8 @@ const BlogDetail = ({ params }: any) => {
   const bid = params["bid"];
   console.log(params["bid"]);
   const [blog, setBlog] = useState<Blog>();
+  const [recs, setRecs] = useState<Blog[]>([]);
+  const [summery, setSummery] = useState<string>("");
   const router = useRouter();
 
   const fetchBlog = async () => {
@@ -33,8 +35,35 @@ const BlogDetail = ({ params }: any) => {
         .then((data) => setBlog(data));
     }
   };
+  const fetchRecs = async () => {
+    if (bid) {
+      // @ts-ignore
+      fetch(`/api/blog/recommend?id=${bid}`)
+        .then((res) => res.json())
+        .then((data) => setRecs(data));
+    }
+  };
+  const fetchSummary = async (text: string) => {
+    console.log("fetching summary");
+
+    fetch(`${process.env.MODEL_API_ENDPOINT}/summarizer`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: text,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => setSummery(data.result));
+  };
+  // useEffect(() => {
+  //   if (blog && summery === "") fetchSummary(blog.text);
+  // }, [blog]);
   useEffect(() => {
     fetchBlog();
+    fetchRecs();
   }, []);
 
   const [scroll, setScroll] = useState("");
@@ -58,6 +87,10 @@ const BlogDetail = ({ params }: any) => {
     if (data === undefined) return "";
     const d = new Date(date!);
     return d.toDateString();
+  };
+
+  const onRecClick = (id: string) => {
+    router.push(`/blog/${id}`);
   };
 
   return (
@@ -106,17 +139,7 @@ const BlogDetail = ({ params }: any) => {
         <div className="mt-4 md:text-5xl text-3xl font-bold dark:text-white">
           {blog?.title}
         </div>
-        <div className="mt-8 dark:text-[#D1CFDB] text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at cursus
-          metus, a efficitur diam. Ut vitae lectus erat. Donec dictum ligula
-          erat, in interdum lacus ultricies nec. Mauris nec tortor a dui
-          scelerisque pellentesque non at nulla. Nullam lacinia elit sed gravida
-          rutrum. Donec ut tortor tristique, efficitur leo ullamcorper, accumsan
-          risus. Pellentesque vestibulum dolor lorem, volutpat rhoncus elit
-          accumsan vel. Aliquam sodales sem ac tellus aliquet, vitae blandit mi
-          consectetur. Etiam euismod ipsum eget elit commodo luctus et eget
-          velit. Phasellus maximus eget ligula vel posuere.
-        </div>
+        <div className="mt-8 dark:text-[#D1CFDB] text-justify">{summery}</div>
         <div className="flex mt-8">
           <img
             className="h-20 w-20 rounded-full"
@@ -135,6 +158,44 @@ const BlogDetail = ({ params }: any) => {
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
         <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">
           {blog?.text}
+        </div>
+        <div className="mt-8">
+          <div className="text-2xl font-bold dark:text-white">
+            You May Also Like
+          </div>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 mt-4 gap-6 justify-between">
+            {recs &&
+              recs.length > 0 &&
+              recs.map((rec) => (
+                <div className="">
+                  <div
+                    onClick={() => onRecClick(rec.id)}
+                    className="flex flex-col w-full hover:scale-110 ease-in duration-300 cursor-pointer"
+                  >
+                    <img
+                      src={`https://source.unsplash.com/random/?${rec?.tags.join(
+                        ","
+                      )}`}
+                      alt=""
+                      className="aspect-video object-cover"
+                    />
+                    <div className="flex mt-3">
+                      {rec.tags.length > 0 && (
+                        <span
+                          key={0}
+                          className="px-3 py-1 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-xs flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
+                        >
+                          {rec.tags[0]}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-md mt-2 font-semibold dark:text-white">
+                      {rec.title}
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>

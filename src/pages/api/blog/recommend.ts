@@ -31,6 +31,10 @@ const getRecommendations = async (
     console.log(rec);
     const recs = await rec.json();
     const indices = recs["result"];
+    if (indices == undefined) {
+      res.status(200).send([]);
+      return;
+    }
     const blogs = await prisma.blog.findMany({
       where: {
         index: {

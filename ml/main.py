@@ -17,6 +17,16 @@ top_k = 10
 
 app = FastAPI()
 
+origins = ["http://localhost",
+"http://localhost:3000"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 clf = pickle.load(open("sentiment.pkl",'rb'))
 vectorizer = pickle.load(open("transform.pkl", "rb"))
 df = pd.read_csv("medium_articles_cleaned.csv")
