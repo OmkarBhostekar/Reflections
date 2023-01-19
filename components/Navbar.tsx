@@ -3,9 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Navbar as Nav } from "flowbite-react";
 import MenuDropdown from "./MenuDropdown";
 import Link from "next/link";
-type Props = {};
+import { signOut } from "next-auth/react";
+import { Session } from "next-auth";
+type Props = {
+  session: Session | null;
+};
 
-const Navbar = (props: Props) => {
+const Navbar = ({ session }: Props) => {
   const [currTheme, setcurrTheme] = useState("");
 
   const clickHandler = () => {

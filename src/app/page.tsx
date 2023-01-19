@@ -7,11 +7,13 @@ import Newspaper from "components/Newspaper";
 import Recommended from "components/Recommended";
 import SearchBar from "components/SearchBar";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import "./globals.css";
 
 type Props = {};
 
 const Home = (props: Props) => {
+  const router = useRouter();
   const clickHandler = () => {
     console.log("clicked");
     if (localStorage.theme === "dark") localStorage.theme = "light";
@@ -47,6 +49,12 @@ const Home = (props: Props) => {
 
     return () => window.removeEventListener("scroll", progressBarHandler);
   });
+
+  const onSearch = (query: string) => {
+    if (query && query.length > 0) {
+      router.push(`/find?search=${query}`);
+    }
+  };
 
   return (
     <div className="max-w-[1420px] mx-auto">

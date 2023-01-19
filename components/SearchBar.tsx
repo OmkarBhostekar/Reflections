@@ -1,18 +1,17 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-type Props = {};
+type Props = {
+  onSearch: (query: string) => void;
+};
 
 const SearchBar = (props: Props) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
-  const handleClick = (e:React.FormEvent<HTMLFormElement>)=>{
-        e.preventDefault();
-        if(query && query.length>0){
-            router.push(`/find?search=${query}`)
-        }
-        return;
-  }
+  const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    props.onSearch(query);
+  };
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 mt-12">
       <section className="bg-white dark:bg-gray-900">
@@ -61,7 +60,7 @@ const SearchBar = (props: Props) => {
                     type="text"
                     id="search"
                     value={query}
-                    onChange={(e)=>setQuery(e.target.value)}
+                    onChange={(e) => setQuery(e.target.value)}
                     required
                   />
                 </div>

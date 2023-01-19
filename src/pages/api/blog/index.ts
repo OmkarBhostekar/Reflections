@@ -24,8 +24,8 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
             timestamp: true,
             url: true,
           },
-          skip: (page - 1) * 10,
-          take: 10,
+          skip: (page - 1) * 20,
+          take: 20,
           orderBy: {
             timestamp: "desc",
           },
@@ -60,8 +60,8 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
               contains: q,
             },
           },
-          skip: (page - 1) * 10,
-          take: 10,
+          skip: (page - 1) * 20,
+          take: 20,
           orderBy: {
             timestamp: "desc",
           },
@@ -86,8 +86,8 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
             timestamp: true,
             url: true,
           },
-          skip: (page - 1) * 10,
-          take: 10,
+          skip: (page - 1) * 20,
+          take: 20,
           orderBy: {
             timestamp: "desc",
           },
@@ -98,7 +98,7 @@ const fetchBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({
       blogs: blogs[0],
-      pages: Math.ceil(blogs[1] / 10),
+      pages: Math.ceil(blogs[1] / 20),
     });
   } catch (err) {
     console.log(err);
