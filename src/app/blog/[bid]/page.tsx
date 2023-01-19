@@ -69,6 +69,11 @@ const BlogDetail = ({ params }: any) => {
     fetchRecs();
   }, []);
 
+  useEffect(() => {
+    if(bid){
+      localStorage.setItem("bid", bid)
+    }
+  }, [bid]);
   const [scroll, setScroll] = useState("");
   useEffect(() => {
     let progressBarHandler = () => {
