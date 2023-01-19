@@ -54,9 +54,12 @@ const BlogDetail = ({ params }: any) => {
     return () => window.removeEventListener("scroll", progressBarHandler);
   });
 
-  const formatDate = (date: string) => {
-    const d = new Date(date);
-    return d.toDateString();
+  const formatDate = (date: string | undefined) => {
+    if(date){
+      const d = new Date(date);
+      return d.toDateString();
+    }
+    return "";
   };
 
   return (
@@ -93,8 +96,8 @@ const BlogDetail = ({ params }: any) => {
         </div>
         <div className="flex flex-row mt-6">
           {blog &&
-            blog.tags.map((tag) => (
-              <span className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease">
+            blog.tags.map((tag, id) => (
+              <span key={id} className="px-4 py-1.5 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease">
                 {tag}
               </span>
             ))}
@@ -124,7 +127,7 @@ const BlogDetail = ({ params }: any) => {
               {blog?.authors}
             </div>
             <div className="dark:text-[#D1CFDB] font-semibold">
-              {formatDate(blog.timestamp)}
+              {formatDate(blog?.timestamp)}
             </div>
           </div>
         </div>
