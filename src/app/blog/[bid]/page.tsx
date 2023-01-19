@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { TextToSpeech, useTts } from "tts-react";
 import parse from "html-react-parser";
 import Link from "next/link";
+import Comments from "components/Comments";
 type Props = {};
 
 const blogDetail = {
@@ -68,6 +69,11 @@ const BlogDetail = ({ params }: any) => {
     fetchRecs();
   }, []);
 
+  useEffect(() => {
+    if(bid){
+      localStorage.setItem("bid", bid)
+    }
+  }, [bid]);
   const [scroll, setScroll] = useState("");
   useEffect(() => {
     let progressBarHandler = () => {
@@ -103,7 +109,7 @@ const BlogDetail = ({ params }: any) => {
           style={{ transform: `scale(${scroll}, 1)`, opacity: `${scroll}` }}
         />
       </div>
-      <div className="flext flex-col flex-grow max-w-3xl ml-[20px] mr-[20px] xl:ml-[370px]">
+      <div className="flex flex-col flex-grow max-w-3xl mx-auto p-4">
         <div className="mt-20 flex flex-row items-center cursor-pointer">
           <ChevronLeftIcon className="h-4 w-4 text-blue-500 dark:text-white" />
           <div
@@ -124,10 +130,7 @@ const BlogDetail = ({ params }: any) => {
             />
           )}
         </div>
-        <div className="flex">
-          {/* <Speech text="Welcome to react speech" /> */}
-        </div>
-        <div className="flex flex-row mt-6">
+        <div className="flex flex-row mt-6 flex-wrap gap-3 md:gap-1">
           {blog &&
             blog?.tags?.map((tag, id) => (
               <span
@@ -223,6 +226,7 @@ const BlogDetail = ({ params }: any) => {
           </div>
         </div>
       </div>
+      <Comments/>
     </div>
   );
 };

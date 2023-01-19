@@ -48,8 +48,7 @@ const CategoryPage = (props: Props) => {
               {search} Blogs
             </h2>
             <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-              We use an agile approach to test assumptions and connect with the
-              needs of your audience early and often.
+            Welcome to the search result page of our blogging website, where you can easily find relevant blog posts based on your keywords or query.
             </p>
           </div>
           <div className="grid gap-8 lg:grid-cols-2">

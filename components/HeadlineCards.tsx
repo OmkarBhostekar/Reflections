@@ -1,44 +1,50 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import MentalHealth from "../assets/mental_health.jpg"
+import Business from "../assets/business.jpg"
+import Programming from "../assets/programming.jpg"
+import Covid from "../assets/covid.jpg"
+import ML from "../assets/ml.jpg"
+import Blockchain from "../assets/blockchain.jpg"
 
 type Props = {};
 
 const HeadLineCards = (props: Props) => {
   const data = [
     {
-      img: "https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      img: MentalHealth.src,
       category: "Mental Health",
       title: "Mental Health and fitness blogs",
       desc: "Lorem ipsum dolor",
     },
     {
-      img: "https://images.unsplash.com/photo-1589363358751-ab05797e5629?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1854&q=80",
+      img: Business.src,
       category: "Business",
       title: "Business blogs",
       desc: "Lorem ipsum dolor",
     },
     {
-      img: "https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80",
+      img: Programming.src,
       category: "Programming",
       title: "Programming blogs",
       desc: "Lorem ipsum dolor",
     },
     {
-      img: "https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      img: Covid.src,
       category: "Covid 19",
-      title: "Health and fitness blogs",
+      title: "Covid-19 Precautions",
       desc: "Lorem ipsum dolor",
     },
     {
-      img: "https://images.unsplash.com/photo-1589363358751-ab05797e5629?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1854&q=80",
+      img: ML.src,
       category: "Machine Learning",
-      title: "Fashion and beauty blogs",
+      title: "Machin Learning and AI",
       desc: "Lorem ipsum dolor",
     },
     {
-      img: "https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80",
-      category: "Politics",
-      title: "Personal Development",
+      img: Blockchain.src,
+      category: "Blockchain",
+      title: "Blockchain Technology",
       desc: "Lorem ipsum dolor",
     },
   ];

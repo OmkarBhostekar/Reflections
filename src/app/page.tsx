@@ -29,7 +29,9 @@ const Home = (props: Props) => {
     }
   };
 
+  const [bid, setBid] = useState("")
   useEffect(() => {
+    setBid(localStorage.getItem("bid"));
     clickHandler();
   }, []);
 
@@ -70,7 +72,9 @@ const Home = (props: Props) => {
       <Hero />
       <MoreInfo />
       <SearchBar onSearch={onSearch}/>
-      <Recommended />
+      {
+        bid?.length>0 && <Recommended bid={bid}/>
+      }
       <Latest />
       <HeadLineCards />
       <Newspaper />
