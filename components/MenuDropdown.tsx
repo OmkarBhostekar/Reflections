@@ -2,11 +2,18 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-type Props = {};
+import { Session } from "next-auth";
+import { signOut } from "next-auth/react";
+type Props = {
+  session: Session | null;
+};
 
-const MenuDropdown = (props: any) => {
+const MenuDropdown = (props: Props) => {
   return (
-    <Menu as="div" className="relative inline-block text-left flex items-center justify-center">
+    <Menu
+      as="div"
+      className="relative inline-block text-left flex items-center justify-center"
+    >
       <Menu.Button>
         <div className="hidden flex items-center md:block md:order-2">
           <button
@@ -20,7 +27,7 @@ const MenuDropdown = (props: any) => {
             <span className="sr-only">Open user menu</span>
             <img
               className="w-8 h-8 rounded-full"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+              src={props.session?.user?.image || ""}
               alt="user photo"
             />
           </button>
@@ -109,7 +116,7 @@ const MenuDropdown = (props: any) => {
             <Menu.Item>
               {({ active }) => (
                 <Link
-                href="/dashboard"
+                  href="/dashboard"
                   className={`${
                     active ? "bg-violet-500 text-white" : "text-gray-900"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -133,8 +140,8 @@ const MenuDropdown = (props: any) => {
           <div className="px-1 py-1">
             <Menu.Item>
               {({ active }) => (
-                <Link
-                href="/log-out"
+                <div
+                  onClick={() => signOut()}
                   className={`${
                     active ? "bg-violet-500 text-white" : "text-red-600"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -151,7 +158,7 @@ const MenuDropdown = (props: any) => {
                     />
                   )}
                   Log Out
-                </Link>
+                </div>
               )}
             </Menu.Item>
           </div>

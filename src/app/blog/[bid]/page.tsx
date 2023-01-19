@@ -60,9 +60,9 @@ const BlogDetail = ({ params }: any) => {
       .then((res) => res.json())
       .then((data) => setSummery(data.result));
   };
-  // useEffect(() => {
-  //   if (blog && summery === "") fetchSummary(blog.text);
-  // }, [blog]);
+  useEffect(() => {
+    if (blog && summery === "") fetchSummary(blog.text);
+  }, [blog]);
   useEffect(() => {
     fetchBlog();
     fetchRecs();

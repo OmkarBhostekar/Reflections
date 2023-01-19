@@ -5,12 +5,14 @@ import MenuDropdown from "./MenuDropdown";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { Session } from "next-auth";
+import { useRouter } from "next/navigation";
 type Props = {
   session: Session | null;
 };
 
 const Navbar = ({ session }: Props) => {
   const [currTheme, setcurrTheme] = useState("");
+  const router = useRouter();
 
   const clickHandler = () => {
     console.log("clicked");
@@ -136,8 +138,17 @@ const Navbar = ({ session }: Props) => {
               </svg>
             </button>
           ) : null}
-          <div>
-            <MenuDropdown />
+          <div className="">
+            {session ? (
+              <MenuDropdown session={session} />
+            ) : (
+              <button
+                onClick={() => router.push("/login")}
+                className="inline-flex items-center justify-center px-3 py-1.5 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+              >
+                Login
+              </button>
+            )}
           </div>
         </div>
       </Nav>
