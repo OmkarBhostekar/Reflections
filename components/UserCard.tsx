@@ -1,8 +1,8 @@
 import React from 'react'
-
 type Props = {}
 
 const UserCard = (props: Props) => {
+
     const data = {
         id: "1",
         name: "FirstName LastName",
@@ -24,7 +24,7 @@ const UserCard = (props: Props) => {
             <div className='flex  justify-between items-center'>
                 <img src={data.image} className='rounded-full h-32 w-32' />
                 <div>
-                    <div className='grid'>
+                    <div className='grid' >
                         <span className='font-thin text-lg'>Post</span>
                         <span className='font-semibold text-lg'>{data.posts}</span>
                     </div>
