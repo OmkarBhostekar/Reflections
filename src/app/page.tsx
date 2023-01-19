@@ -11,7 +11,6 @@ import "./globals.css";
 type Props = {};
 
 const Home = (props: Props) => {
-  const [scroll, setScroll] = useState("");
   const clickHandler = () => {
     console.log("clicked");
     if (localStorage.theme === "dark") localStorage.theme = "light";
@@ -31,6 +30,7 @@ const Home = (props: Props) => {
     clickHandler();
   }, []);
 
+  const [scroll, setScroll] = useState("");
   useEffect(() => {
     let progressBarHandler = () => {
       const totalScroll = document.documentElement.scrollTop;

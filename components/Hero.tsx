@@ -9,13 +9,14 @@ const Hero = (props: Props) => {
         <div className="flex flex-col max-w-screen-xl space-y-12 px-4 py-8 mx-auto space-x-12 lg:grid lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7 content">
             <h2 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-            Reflections
+              Reflections
             </h2>
             <h2 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-            Reflections
+              Reflections
             </h2>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              Discover the power of storytelling: How writing on your blog can change the world.
+              Discover the power of storytelling: How writing on your blog can
+              change the world.
             </p>
             <a
               href="#"
@@ -51,7 +52,6 @@ const Hero = (props: Props) => {
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mobile-app.svg"
               alt="mockup"
             />
-            
           </div>
         </div>
       </section>

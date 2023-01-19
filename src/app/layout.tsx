@@ -32,8 +32,10 @@ export default async function RootLayout({
       */}
       <head />
       <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
-      <body className="wrapper dark:bg-[#05091a]">
-        <Navbar />
+      <body className="wrapper flex flex-col dark:bg-[#05091a]">
+        <div className="fixed w-screen bg-white dark:bg-[#05091a] z-10">
+          <Navbar />
+        </div>
         {children}
       </body>
       <Footer />

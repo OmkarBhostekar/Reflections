@@ -63,7 +63,7 @@ const Navbar = (props: Props) => {
             </button>
           </div>
 
-          <Nav.Toggle className="ml-auto"/>
+          <Nav.Toggle className="ml-auto" />
           <Nav.Collapse className="m-auto">
             <Nav.Link className="text-blue-600 md:hidden" href="/dashboard">
               Dashboard
