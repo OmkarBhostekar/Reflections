@@ -78,7 +78,9 @@ const Navbar = (props: Props) => {
           </Nav.Collapse>
 
           {/* Day - night toggler */}
-          <button
+          {
+            currTheme.length>0 ?
+            <button
             onClick={clickHandler}
             id="theme-toggle"
             type="button"
@@ -107,6 +109,9 @@ const Navbar = (props: Props) => {
               ></path>
             </svg>
           </button>
+          :
+          null
+          }
         </div>
       </Nav>
     </div>

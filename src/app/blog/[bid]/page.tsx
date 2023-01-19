@@ -51,10 +51,10 @@ const BlogDetail = ({ params }: any) => {
             Software
           </span>
         </div>
-        <div className="mt-4 md:text-5xl text-3xl font-bold">
+        <div className="mt-4 md:text-5xl text-3xl font-bold dark:text-slate-200">
           {blogDetail.title}
         </div>
-        <p className="mt-6 text-justify">{blogDetail.text}</p>
+        <p className="mt-6 text-justify dark:text-slate-200">{blogDetail.text}</p>
       </div>
     </div>
   );
