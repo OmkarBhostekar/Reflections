@@ -9,6 +9,7 @@
 /ml/*.pkl
 /ml/__pycache__
 /ml/.ipynb_checkpoints
+/ml/*.pklz
 
 # testing
 /coverage
@@ -40,3 +41,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+yarn.lock
+package-lock.json

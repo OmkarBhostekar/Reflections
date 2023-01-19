@@ -10,14 +10,14 @@ const size = 1;
 const userId = "omkar";
 const Profile = (props: Props) => {
   return (
-      <div className=" flex     ">
+      <div className=" flex flex-col pt-12 dark:text-white ">
         
         <div className="space-y-2 pl-10">
           <UserCard />
-          <h1 className="text-4xl font-bold">Recent Blogs,</h1>
+          {/* <h1 className="text-4xl font-bold ">Recent Blogs,</h1>
           <Cards />
           <Cards />
-          <Cards />
+          <Cards /> */}
 
         </div>
         

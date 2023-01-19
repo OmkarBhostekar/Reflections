@@ -12,3 +12,4 @@ def summarizer_bert(text):
     full = ''.join(result)
     return full
 
+print(summarizer_bert(body))

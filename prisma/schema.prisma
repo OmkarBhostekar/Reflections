@@ -27,12 +27,13 @@ model Blog {
 }
 
 model User {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  avatar String
-  email  String @unique
-  name   String
-  role   String
-  blogs  Blog[]
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  avatar   String
+  email    String @unique
+  password String @default("")
+  name     String
+  role     String
+  blogs    Blog[]
 }
 
 model test {
