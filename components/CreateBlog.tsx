@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import Multiselect from "multiselect-react-dropdown";
-import JoditEditor from "jodit-react";
-import { text } from "stream/consumers";
 import { Tiptap } from "./TipTap";
 
 type Props = {};
@@ -48,38 +46,43 @@ const CreateBlogs = (props: Props) => {
 
         /> */}
 
-      <Tiptap />
-      <Multiselect
-        className="mt-10 dark:bg-gray-800 dark:text-black "
-        isObject={false}
-        onKeyPressFn={function noRefCheck() {}}
-        onRemove={function noRefCheck(e) {
-          console.log(e);
-        }}
-        onSearch={function noRefCheck() {}}
-        onSelect={function noRefCheck() {}}
-        showCheckbox={true}
-        options={[
-          "Adevnture",
-          "Computer",
-          "Machin Learnign",
-          "Artificial Intelligence",
-          "Information Technology",
-        ]}
-        style={{
-          chips: {
-            background: "black",
-          },
-          multiselectContainer: {
-            color: "none",
-          },
-          searchBox: {
-            border: "black",
-            "border-bottom": "1px solid black",
-            "border-radius": "1px",
-          },
-        }}
-      />
+          <Tiptap  />
+
+          
+          <Multiselect
+            className="mt-10 dark:bg-gray-800 dark:text-black "
+            isObject={false}
+            onKeyPressFn={function noRefCheck() {}}
+            onRemove={function noRefCheck(e) {
+              console.log(e);
+            }}
+            onSearch={function noRefCheck() {}}
+            onSelect={function noRefCheck() {}}
+            showCheckbox={true}
+            options={[
+              "Adevnture",
+              "Computer",
+              "Machin Learnign",
+              "Artificial Intelligence",
+              "Information Technology",
+            ]}
+            style={{
+             
+              chips: {
+                background: "black",
+                
+              },
+              multiselectContainer: {
+                color: "none",
+              },
+              searchBox: {
+                border: "black",
+                "border-bottom": "1px solid black",
+                "border-radius": "1px",
+                
+              }
+            }}
+          />
 
       <div className="grid place-content-center	pt-10">
         <button className="px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
