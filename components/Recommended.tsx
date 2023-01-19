@@ -39,49 +39,9 @@ const Recommended = (props: Props) => {
     router.push(`/blog/${id}`);
   };
 
-  // const blogs = [
-  //   {
-  //     img: Mountain.src,
-  //     isMemberOnly: true,
-  //     title: "Best Mountain Trails 2020",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-  //     autherImg:
-  //       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-  //     autherName: "John Smith",
-  //     dateOfPost: "Aug 18",
-  //   },
-  //   {
-  //     img: River.src,
-  //     isMemberOnly: false,
-  //     title: "15 Rivers In Norway",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-  //     autherImg:
-  //       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-  //     autherName: "Karen Johnson",
-  //     dateOfPost: "Aug 10",
-  //   },
-  //   {
-  //     img: Mountain.src,
-  //     isMemberOnly: true,
-  //     title: "Best Mountain Trails 2020",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-  //     autherImg:
-  //       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-  //     autherName: "John Smith",
-  //     dateOfPost: "Aug 18",
-  //   },
-  //   {
-  //     img: River.src,
-  //     isMemberOnly: false,
-  //     title: "15 Rivers In Norway",
-  //     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-  //     autherImg:
-  //       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-  //     autherName: "Karen Johnson",
-  //     dateOfPost: "Aug 10",
-  //   },
-  // ];
+  console.log(recs)
   return (
+    Array.isArray(recs) && 
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
       <h1 className="text-center mt-8 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
         FOR YOU!
@@ -90,7 +50,7 @@ const Recommended = (props: Props) => {
       <div className="p-4 gap-y-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-8 md:gap-y-12">
         {/* <!--Card 1--> */}
 
-        {recs?.length>0 && recs?.map((rec:any) => {
+        {recs?.length>0 && Array.isArray(recs) && recs?.map((rec:any) => {
           return (
             <div className="" key={rec.id}>
                   <div
