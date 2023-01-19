@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { TextToSpeech, useTts } from "tts-react";
 import parse from "html-react-parser";
 import Link from "next/link";
+import Comments from "components/Comments";
 type Props = {};
 
 const blogDetail = {
@@ -223,6 +224,7 @@ const BlogDetail = ({ params }: any) => {
           </div>
         </div>
       </div>
+      <Comments/>
     </div>
   );
 };

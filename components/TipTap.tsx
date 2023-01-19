@@ -33,25 +33,25 @@ const MenuBar = ({ editor }) => {
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={editor.isActive("bold") ? "is_active" : ""}
         >
-          <FaBold className="text-sm"/>
+          <FaBold className="text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={editor.isActive("italic") ? "is_active" : ""}
         >
-          <FaItalic className="text-sm"/>
+          <FaItalic className="text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={editor.isActive("underline") ? "is_active" : ""}
         >
-          <FaUnderline className="text-sm"/>
+          <FaUnderline className="text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleStrike().run()}
           className={editor.isActive("strike") ? "is_active" : ""}
         >
-          <FaStrikethrough className="text-sm"/>
+          <FaStrikethrough className="text-sm" />
         </button>
         <button
           onClick={() =>
@@ -61,7 +61,7 @@ const MenuBar = ({ editor }) => {
             editor.isActive("heading", { level: 2 }) ? "is_active" : ""
           }
         >
-          <FaHeading className="text-sm"/>
+          <FaHeading className="text-sm" />
         </button>
         <button
           onClick={() =>
@@ -71,33 +71,33 @@ const MenuBar = ({ editor }) => {
             editor.isActive("heading", { level: 3 }) ? "is_active" : ""
           }
         >
-          <FaHeading className="heading3 text-sm"/>
+          <FaHeading className="heading3 text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive("bulletList") ? "is_active" : ""}
         >
-          <FaListUl className="text-sm"/>
+          <FaListUl className="text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive("orderedList") ? "is_active" : ""}
         >
-          <FaListOl className="text-sm"/>
+          <FaListOl className="text-sm" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editor.isActive("blockquote") ? "is_active" : ""}
         >
-          <FaQuoteLeft className="text-sm"/>
+          <FaQuoteLeft className="text-sm" />
         </button>
       </div>
       <div>
         <button onClick={() => editor.chain().focus().undo().run()}>
-          <FaUndo className="text-sm"/>
+          <FaUndo className="text-sm" />
         </button>
         <button onClick={() => editor.chain().focus().redo().run()}>
-          <FaRedo className="text-sm"/>
+          <FaRedo className="text-sm" />
         </button>
       </div>
     </div>
@@ -119,14 +119,11 @@ export const Tiptap = ({}) => {
     useLegacyResults: false,
   });
 
- 
+  // if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
 
-  if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
-  
   const editor = useEditor({
     extensions: [StarterKit, Underline, TextStyle, Color],
     content: ``,
-    
 
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
@@ -134,7 +131,6 @@ export const Tiptap = ({}) => {
       console.log(html);
     },
   });
-
   useEffect(() => {
     if (interimResult) {
       const html = editor.getHTML(); + interimResult;
@@ -150,12 +146,20 @@ export const Tiptap = ({}) => {
   return (
     <div>
       <h1>Recording: {isRecording.toString()}</h1>
-      <button className="p-2 bg-gray-500" onClick={isRecording ? stopSpeechToText : startSpeechToText}>
+      <button
+        className="p-2 bg-gray-500"
+        onClick={isRecording ? stopSpeechToText : startSpeechToText}
+      >
         {isRecording ? "Stop Recording" : "Start Recording"}
       </button>
-      <button onClick={() =>{
-        setFlag(!flag)
-      }} className="space-x-4 px-2">toggle</button>
+      <button
+        onClick={() => {
+          setFlag(!flag);
+        }}
+        className="space-x-4 px-2"
+      >
+        toggle
+      </button>
 
       <div className="textEditor">
         <MenuBar editor={editor} />
@@ -170,7 +174,6 @@ export const Tiptap = ({}) => {
             {results.map((result) => (
               <li key={result.timestamp}>{result.transcript}</li>
               // editor?.setOptions({ content: result.transcript })
-             
             ))}
             {interimResult && <li>{interimResult}</li>}
           </ul>
@@ -179,4 +182,3 @@ export const Tiptap = ({}) => {
     </div>
   );
 };
-

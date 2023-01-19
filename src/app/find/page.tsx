@@ -13,7 +13,7 @@ const SearchResult = (props: Props) => {
   const params = useSearchParams();
   const search = params.get("search");
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  console.log(search);
+  console.log(blogs);
 
   const fetchBlogs = async (q: string) => {
     fetch(`/api/blog?q=${q}&page=1`)

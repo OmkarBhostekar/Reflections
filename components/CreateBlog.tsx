@@ -5,8 +5,6 @@ import { Tiptap } from "./TipTap";
 type Props = {};
 
 const CreateBlogs = (props: Props) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
   // const [selectedValue, setSelectedValue] = useState([]);
 
   // const config = {
