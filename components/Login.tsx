@@ -38,7 +38,7 @@ const Login = ({ providers }: Props) => {
   return (
     <div>
       <section className=" min-h-screen   flex items-center justify-between w-full">
-        <div className=" flex rounded-2xl pt-10 w-full px-20 items-center">
+        <div className=" flex rounded-2xl pt-10 w-full px-8 md:px-20 items-center">
           <div className="md:w-1/2 px-2 md:px-2 ">
             <h1 className="text-4xl antialiased font-bold dark:text-white">
               Welcome to Reflections
@@ -91,7 +91,7 @@ const Login = ({ providers }: Props) => {
                     <button
                       key={id}
                       onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                      className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
+                      className="bg-white border py-3 px-3 md:px-0 md:w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
                       <FcGoogle className="text-2xl" />
                       <div className="ml-2  font-semibold">
@@ -102,7 +102,7 @@ const Login = ({ providers }: Props) => {
                     <button
                       key={id}
                       onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                      className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
+                      className="bg-white border py-3 px-3 md:px-0 md:w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
                       <BsGithub className="text-xl" />
                       <div className="ml-2 font-semibold">

@@ -15,6 +15,7 @@ const getLatest = async (req: NextApiRequest, res: NextApiResponse) => {
         timestamp: true,
         tags: true,
       },
+      take: 10,
     });
     // const blogs = await prisma.blog.findMany({
     //   where: {
