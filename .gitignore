@@ -11,6 +11,9 @@
 /ml/.ipynb_checkpoints
 /ml/*.pklz
 
+/public/sw.js
+/public/workbox-*.js
+
 # testing
 /coverage
 

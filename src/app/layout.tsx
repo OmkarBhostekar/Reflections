@@ -29,6 +29,7 @@ export default async function RootLayout({
       */}
       <head>
         <title>Reflections</title>
+        <link rel="manifest" href="/manifest.json"></link>
       </head>
       <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
       <body className="wrapper flex flex-col dark:bg-[#05091a]">
