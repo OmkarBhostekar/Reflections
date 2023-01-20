@@ -6,14 +6,14 @@ const deleteBlog = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
 
         const id = req.query.id as string;
-        const username = req.body.username;
+        const uid = req.body.userId as string;
         const blog = await prisma.blog.findUnique({
             where: { id: id },
             select: {
                 id: true,
                 index: true,
                 title: true,
-                username: true,
+                user: true,
             },
         });
         if (!blog) {
@@ -21,10 +21,8 @@ const deleteBlog = async (req: NextApiRequest, res: NextApiResponse) => {
             return;
         }
 
-        if (blog.username === username) {
+        if (blog.user.id === uid) {
 
-            blog.username = req.body.username;
-           
             const deleteBlog = await prisma.blog.delete({
                 where: {
                     id: id,
