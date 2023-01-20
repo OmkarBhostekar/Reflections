@@ -17,19 +17,20 @@ const Bookmarked = (props: Props) => {
     if (usrEmail?.length > 0) {
       setUserEmail(usrEmail);
     }
-  }, []);
+  }, [userEmail]);
 
 
   useEffect(() => {
-    fetch(`/api/user/bookmark?userEmail=${userEmail}`)
+    if(userEmail.length>0){
+      fetch(`/api/user/bookmark?userEmail=${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setBookmarkedBlogs(data);
       });
+    }
   }, [userEmail]);
   return (
     <section
-      id="latest"
       className="bg-white dark:bg-gray-900 max-w-[1420px] mx-auto flex justify-between items-center p-4 mt-12"
     >
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

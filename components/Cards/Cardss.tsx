@@ -33,7 +33,7 @@ const Cardss = (props: any) => {
   return (
     <article
       onClick={() => router.push(`/blog/${blog?.id}`)}
-      className="card-zoom p-6 cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      className="card-zoom p-3 md:p-6 cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 md:min-w-[450px]"
     >
       <div className="flex justify-between items-center mb-5 text-gray-500">
         <div className="flex items-center space-x-2">
@@ -134,12 +134,12 @@ const Cardss = (props: any) => {
             src={`https://api.dicebear.com/5.x/personas/svg?seed=${blog?.authors}}`}
             alt="Bonnie Green avatar"
           />
-          <span className="font-medium dark:text-white">{blog?.authors}</span>
+          <span className="text-sm md:text-lg font-medium dark:text-white">{blog?.authors}</span>
         </div>
-        <div className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+        <div className="text-xs md:text-lg inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
           Read more
           <svg
-            className="ml-2 w-4 h-4"
+            className="ml-2 w-4 h-4 hidden md:block"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
