@@ -232,8 +232,8 @@ const BlogDetail = ({ params }: any) => {
               ))}
           </div>
         </div>
-      </div>
       <Comments blog={blog} />
+      </div>
     </div>
   );
 };

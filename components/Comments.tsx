@@ -35,8 +35,8 @@ const Comments = (props: Props) => {
 
   console.log(comments);
   return (
-    <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
-      <section className="bg-white dark:bg-gray-900 py-8 lg:py-16">
+    <div className="max-w-[1420px] mx-0 flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
+      <section className="w-full bg-white dark:bg-gray-900 py-8 lg:py-16">
         <div className="max-w-2xl mx-auto px-4">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
