@@ -2,7 +2,7 @@
 import UserCard from "components/UserCard";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import { usePathname } from "next/navigation";
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
@@ -14,7 +14,7 @@ export default function DashboardLayout({
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [active, setActive] = useState(1);
-
+const path = usePathname();
   useEffect(() => {
     const usrImg = localStorage.getItem("userImage");
     if (usrImg?.length > 0) {
@@ -27,6 +27,14 @@ export default function DashboardLayout({
     const usrEmail = localStorage.getItem("userEmail");
     if (usrName?.length > 0) {
       setUserEmail(usrEmail);
+    }
+
+
+    if(path.includes("bookmarked")){
+      setActive(2)
+    }
+    if(path.includes("myblogs")){
+      setActive(1)
     }
   }, []);
 
