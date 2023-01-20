@@ -28,7 +28,7 @@ const Home = (props: Props) => {
     }
   };
 
-  const [bid, setBid] = useState("")
+  const [bid, setBid] = useState("");
   useEffect(() => {
     setBid(localStorage.getItem("bid"));
     clickHandler();
@@ -70,10 +70,8 @@ const Home = (props: Props) => {
       {/* <button onClick={clickHandler}>Click me</button> */}
       <Hero />
       <MoreInfo />
-      <SearchBar onSearch={onSearch}/>
-      {
-        bid?.length>0 && <Recommended bid={bid}/>
-      }
+      <SearchBar onSearch={onSearch} />
+      {bid?.length > 0 && <Recommended bid={bid} />}
       <Latest />
       <HeadLineCards />
       <Newspaper />

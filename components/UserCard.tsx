@@ -3,9 +3,10 @@ type Props = {
   userName: string;
   userImage: string;
   userEmail: string;
+  postCount: number;
 };
 
-const UserCard = ({ userImage, userName, userEmail }: Props) => {
+const UserCard = ({ userImage, userName, userEmail, postCount }: Props) => {
   const data = {
     id: "1",
     name: userName,
@@ -67,7 +68,7 @@ const UserCard = ({ userImage, userName, userEmail }: Props) => {
             {userEmail}
           </span>
           <div className="flex flex-col items-center justify-center">
-            <dt className="mb-2 text-3xl font-extrabold">73M+</dt>
+            <dt className="mb-2 text-3xl font-extrabold">{postCount}</dt>
             <dd className="font-light text-gray-500 dark:text-gray-400">
               Posts
             </dd>

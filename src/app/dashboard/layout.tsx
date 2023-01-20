@@ -14,7 +14,17 @@ export default function DashboardLayout({
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [active, setActive] = useState(1);
-const path = usePathname();
+  const [postCount, setPostCount] = useState(0);
+
+  useEffect(() => {
+    if (userName.length > 0) {
+      fetch(`/api/blog/myblogs?userName=${userName}`)
+        .then((res) => res.json())
+        .then((data) => setPostCount(data.length));
+    }
+  }, [userName]);
+
+  const path = usePathname();
   useEffect(() => {
     const usrImg = localStorage.getItem("userImage");
     if (usrImg?.length > 0) {
@@ -29,12 +39,11 @@ const path = usePathname();
       setUserEmail(usrEmail);
     }
 
-
-    if(path.includes("bookmarked")){
-      setActive(2)
+    if (path.includes("bookmarked")) {
+      setActive(2);
     }
-    if(path.includes("myblogs")){
-      setActive(1)
+    if (path.includes("myblogs")) {
+      setActive(1);
     }
   }, []);
 
@@ -46,6 +55,7 @@ const path = usePathname();
         userImage={userImage}
         userName={userName}
         userEmail={userEmail}
+        postCount={postCount}
       />
 
       <div className="mt-12 border-b border-gray-200 dark:border-gray-700">

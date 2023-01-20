@@ -6,6 +6,7 @@ import Programming from "../assets/programming.jpg";
 import Covid from "../assets/covid.jpg";
 import ML from "../assets/ml.jpg";
 import Blockchain from "../assets/blockchain.jpg";
+import Image from "next/image";
 
 type Props = {};
 
@@ -75,7 +76,9 @@ const HeadLineCards = (props: Props) => {
                     Read
                   </button>
                 </div>
-                <img
+                <Image
+                  height={500}
+                  width={500}
                   className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
                   src={card?.img}
                   alt="/"
