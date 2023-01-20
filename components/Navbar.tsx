@@ -6,7 +6,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.png";
 type Props = {
   session: Session | null;
 };
@@ -17,6 +17,7 @@ const Navbar = ({ session }: Props) => {
 
   localStorage.setItem("author", session?.user?.name || "");
   localStorage.setItem("authorImage", session?.user?.image || "");
+  localStorage.setItem("isLoggedIn", session ? "true" : "false");
 
   const clickHandler = () => {
     console.log("clicked");
@@ -36,8 +37,8 @@ const Navbar = ({ session }: Props) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("userImage", session?.user?.image)
-    localStorage.setItem("userName", session?.user?.name)
+    localStorage.setItem("userImage", session?.user?.image);
+    localStorage.setItem("userName", session?.user?.name);
     clickHandler();
   }, []);
   return (
@@ -49,11 +50,7 @@ const Navbar = ({ session }: Props) => {
       >
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Nav.Brand href="/" className="flex items-center cursor-pointer">
-            <img
-              src={Logo.src}
-              className="h-6 mr-3 sm:h-9"
-              alt="Logo"
-            />
+            <img src={Logo.src} className="h-6 mr-3 sm:h-9" alt="Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Reflections
             </span>
