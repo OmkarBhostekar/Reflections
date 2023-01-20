@@ -11,7 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
-    "@next/font": "13.1.2",
+    "@next/font": "^13.1.2",
     "@prisma/client": "^4.9.0",
     "@speechly/speech-recognition-polyfill": "github:speechly/speech-recognition-polyfill",
     "@tiptap/extension-color": "^2.0.0-beta.209",
