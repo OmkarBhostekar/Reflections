@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import Cardss from "components/Cards/Cardss";
-
-type Props = {};
+type Props = {
+  userEmail: String;
+};
 
 const Bookmarked = (props: Props) => {
   const [userEmail, setUserEmail] = useState("");
   const [bookmarkedBlogs, setBookmarkedBlogs] = useState([]);
-
   useEffect(() => {
     const usrEmail = localStorage.getItem("userEmail");
     if (usrEmail?.length > 0) {
