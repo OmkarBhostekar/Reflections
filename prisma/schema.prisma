@@ -37,6 +37,7 @@ model User {
   name     String
   role     String
   blogs    Blog[]
+  bookmarks    String[]
 }
 
 model test {
