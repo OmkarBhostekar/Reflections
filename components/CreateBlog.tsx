@@ -138,8 +138,9 @@ const CreateBlogs = (props: Props) => {
         <div className="">
           <div className="mb-2">Next word suggestion</div>
           <div className="flex flex-row gap-4">
-            {next.map((item) => (
+            {next.map((item, id) => (
               <span
+                key={id}
                 onClick={() => onNextClick(item)}
                 className="px-4 py-2 rounded-full border border-gray-300 text-gray-500 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
               >

@@ -19,6 +19,7 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse) => {
         name: name,
         email: email,
         avatar: avatar,
+        role: "user",
       },
     });
     res.status(200).json(user);
@@ -37,7 +38,7 @@ export default async function handler(
     case "GET":
       break;
     case "POST":
-      creatUser(req, res);
+      createUser(req, res);
       break;
     case "PATCH":
       break;

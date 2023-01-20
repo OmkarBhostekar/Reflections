@@ -35,21 +35,10 @@ const UserCard = ({ userImage, userName, userEmail }: Props) => {
             <span className="font-thin text-lg text-center">{data.posts}</span>
           </div>
         </div>
-        <div className="pt-5">
-          <div className="grid">
-            <span className="font-semibold text-lg md:text-xl">
-              {data.name}
-            </span>
-            <span className="font-thin text-sm md:text-lg text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              voluptate.
-            </span>
-          </div>
-        </div>
-        <div className="pt-5">
+        <div className="pt-8">
           <div className="grid">
             <span className="font-semibold text-lg md:text-xl">About</span>
-            <span className="font-thin text-sm md:text-lg text-justify">
+            <span className="font-thin text-sm md:text-lg text-justify new-line">
               {data.about}
             </span>
           </div>

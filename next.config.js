@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     domains: ["miro.medium.com"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;

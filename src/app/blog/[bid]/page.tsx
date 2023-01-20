@@ -147,7 +147,7 @@ const BlogDetail = ({ params }: any) => {
         {summery && summery.length > 0 && (
           <div className="mt-12">
             <div className="text-2xl font-bold mb-2 dark:text-white">
-              Summery
+              Summary
             </div>
             <div className=" dark:text-[#D1CFDB] text-justify">{summery}</div>
           </div>
@@ -195,44 +195,48 @@ const BlogDetail = ({ params }: any) => {
           </div>
         </div>
         <div className="mt-8">
-          <div className="text-2xl font-bold dark:text-white">
-            You May Also Like
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 mt-4 gap-6 justify-between">
-            {recs &&
-              recs.length > 0 &&
-              recs.map((rec) => (
-                <div className="" key={rec.id}>
-                  <div
-                    onClick={() => onRecClick(rec.id)}
-                    className="flex flex-col w-full hover:scale-110 ease-in duration-300 cursor-pointer"
-                  >
-                    <img
-                      src={`https://source.unsplash.com/random/?${rec?.tags.join(
-                        ","
-                      )}`}
-                      alt=""
-                      className="aspect-video object-cover"
-                    />
-                    <div className="flex mt-3">
-                      {rec.tags.length > 0 && (
-                        <span
-                          key={0}
-                          className="px-3 py-1 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-xs flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
-                        >
-                          {rec.tags[0]}
-                        </span>
-                      )}
+          {recs && recs.length > 0 && (
+            <div>
+              <div className="text-2xl font-bold dark:text-white">
+                You May Also Like
+              </div>
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 mt-4 gap-6 justify-between">
+                {recs &&
+                  recs.length > 0 &&
+                  recs.map((rec) => (
+                    <div className="" key={rec.id}>
+                      <div
+                        onClick={() => onRecClick(rec.id)}
+                        className="flex flex-col w-full hover:scale-110 ease-in duration-300 cursor-pointer"
+                      >
+                        <img
+                          src={`https://source.unsplash.com/random/?${rec?.tags.join(
+                            ","
+                          )}`}
+                          alt=""
+                          className="aspect-video object-cover"
+                        />
+                        <div className="flex mt-3">
+                          {rec.tags.length > 0 && (
+                            <span
+                              key={0}
+                              className="px-3 py-1 mr-2 rounded-full text-blue-500 dark:text-white dark:bg-[#213ABF] bg-blue-100 font-semibold text-xs flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
+                            >
+                              {rec.tags[0]}
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-md mt-2 font-semibold dark:text-white">
+                          {rec.title}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-md mt-2 font-semibold dark:text-white">
-                      {rec.title}
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
-      <Comments blog={blog} />
+        <Comments blog={blog} />
       </div>
     </div>
   );

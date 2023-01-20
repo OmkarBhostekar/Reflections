@@ -56,7 +56,6 @@ const Dashboard = (props: Props) => {
       url: "https://medium.datadriveninvestor.com/is-it-hard-to-build-a-blockchain-from-scratch-23bac74e4f",
     },
   ];
-
   return (
     <div className="w-full space-y-3 p-4">
       <h1 className="text-2xl lg:text-4xl font-bold text-black dark:text-white">

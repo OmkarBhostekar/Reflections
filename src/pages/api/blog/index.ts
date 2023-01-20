@@ -124,6 +124,19 @@ const createBlog = async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
     res.status(200).json(blog);
+    // fetch(`${process.env.MODEL_API_ENDPOINT}/new_data_recommender`, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     author: blog.authors,
+    //     title: blog.title,
+    //     content: blog.text,
+    //     timestamp: blog.timestamp,
+    //     tags: tags,
+    //     url: "",
+    //     index: blog.index,
+    //   }),
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal server error" });

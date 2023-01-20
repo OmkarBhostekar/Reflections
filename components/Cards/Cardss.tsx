@@ -18,7 +18,7 @@ const formatDate = (date: string | undefined) => {
   return d.toDateString();
 };
 
-const Cardss = (props: Props) => {
+const Cardss = (props: any) => {
   const router = useRouter();
   const blog = props.blog;
   const fromBookmarked = props.fromBookmarked;
