@@ -104,6 +104,28 @@ const CreateBlogs = (props: Props) => {
     }
   };
 
+  if (!props.session) {
+    return (
+      <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 mt-32">
+        <section className="bg-white dark:bg-gray-900">
+          <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div className="mx-auto max-w-screen-md sm:text-center">
+              <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
+                Log In to create a blog...
+              </h2>
+              <button
+                onClick={() => router.push("/login")}
+                className="inline-flex items-center justify-center px-6 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="md:w-[90%] max-w-[1420px] mx-auto border-none focus:ring-0 bg-slate-50 mt-20 p-4 md:p-10 border-1 rounded dark:bg-gray-800 dark:text-white ">
       <input

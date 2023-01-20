@@ -49,7 +49,7 @@ const BlogDetail = ({ params }: any) => {
   const fetchSummary = async (text: string) => {
     console.log("fetching summary");
 
-    fetch(`${process.env.MODEL_API_ENDPOINT}/summarizer`, {
+    fetch(`/api/ml/summerizer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -144,7 +144,14 @@ const BlogDetail = ({ params }: any) => {
         <div className="mt-4 md:text-5xl text-3xl font-bold dark:text-white">
           {blog?.title}
         </div>
-        <div className="mt-8 dark:text-[#D1CFDB] text-justify">{summery}</div>
+        {summery && summery.length > 0 && (
+          <div className="mt-12">
+            <div className="text-2xl font-bold mb-2 dark:text-white">
+              Summery
+            </div>
+            <div className=" dark:text-[#D1CFDB] text-justify">{summery}</div>
+          </div>
+        )}
         <div className="flex mt-8">
           <img
             className="h-20 w-20 rounded-full"
