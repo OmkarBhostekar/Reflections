@@ -1,11 +1,11 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import MentalHealth from "../assets/mental_health.jpg"
-import Business from "../assets/business.jpg"
-import Programming from "../assets/programming.jpg"
-import Covid from "../assets/covid.jpg"
-import ML from "../assets/ml.jpg"
-import Blockchain from "../assets/blockchain.jpg"
+import MentalHealth from "../assets/mental_health.jpg";
+import Business from "../assets/business.jpg";
+import Programming from "../assets/programming.jpg";
+import Covid from "../assets/covid.jpg";
+import ML from "../assets/ml.jpg";
+import Blockchain from "../assets/blockchain.jpg";
 
 type Props = {};
 
@@ -64,7 +64,7 @@ const HeadLineCards = (props: Props) => {
             return (
               <div
                 key={id}
-                className="rounded-xl relative card-zoom"
+                className="rounded-xl relative card-zoom cursor-pointer"
                 onClick={(e) => handleClick(e, card?.category)}
               >
                 {/* Overlay */}

@@ -1,68 +1,104 @@
 import Blog from "@/types/Blog";
-import React from "react";
-type Props = {};
+import { Session } from "next-auth";
+import React, { useState } from "react";
+type Props = {
+  blog: Blog;
+};
 
-const Comments = (props: any) => {
+const Comments = (props: Props) => {
   const comments = props?.blog?.comments;
+  const [comment, setComment] = useState("");
   const good = true;
 
-  console.log(comments)
+  const submitComment = async () => {
+    if (comment === "") return;
+    const blogId = props?.blog?.id;
+    const res = await fetch(`/api/blog/comment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: blogId,
+        comment: comment,
+        author: localStorage.getItem("author"),
+        authorImage: localStorage.getItem("authorImage"),
+      }),
+    });
+    const data = await res.json();
+    setComment("");
+    props?.blog?.comments?.push(data.result);
+  };
+
+  console.log(comments);
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
       <section className="bg-white dark:bg-gray-900 py-8 lg:py-16">
         <div className="max-w-2xl mx-auto px-4">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-              Discussion (20)
+              Discussion ({comments?.length})
             </h2>
           </div>
-          <form className="mb-6">
-            <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-              <label htmlFor="comment" className="sr-only">
-                Your comment
-              </label>
-              <textarea
-                id="comment"
-                rows={6}
-                className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                placeholder="Write a comment..."
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
-              Post comment
-            </button>
-          </form>
+          {/* <form className="mb-6"> */}
+          <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <label htmlFor="comment" className="sr-only">
+              Your comment
+            </label>
+            <textarea
+              id="comment"
+              rows={6}
+              onChange={(e) => setComment(e.target.value)}
+              value={comment}
+              className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+              placeholder="Write a comment..."
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            onClick={submitComment}
+            className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+          >
+            Post comment
+          </button>
+          {/* </form> */}
 
           {comments &&
             Array.isArray(comments) &&
             comments.map((comment, id) => {
-              let avatar = comment?.text.split(" ")[0]
+              let avatar = comment?.text.split(" ")[0];
               return (
-                <article key={id} className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <article
+                  key={id}
+                  className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+                >
                   <footer className="flex justify-between items-center mb-2">
                     <div className="flex items-center">
                       <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                         <img
                           className="mr-2 w-6 h-6 rounded-full"
-                          src={`https://api.dicebear.com/5.x/personas/svg?seed=${avatar}}`}
+                          src={
+                            comment?.authorImage ||
+                            `https://api.dicebear.com/5.x/personas/svg?seed=${avatar}}`
+                          }
                           alt=""
                         />
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {comment?.author || "Anonymous User"}
+                      </p>
+                      {/* <p className="text-sm text-gray-600 dark:text-gray-400">
                         <time
                           pubdate
                           datetime="2022-06-23"
                           title="June 23rd, 2022"
                         >
-                          Jun. 23, 2022
+                          {comment?.timestamp}
                         </time>
-                      </p>
+                      </p> */}
                     </div>
-                    {comment.sentiment=="positive" ? (
+                    {comment.sentiment == "positive" ? (
                       <button
                         title="Good Comment"
                         id="dropdownComment4Button"

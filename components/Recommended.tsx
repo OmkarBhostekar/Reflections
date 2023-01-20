@@ -46,7 +46,7 @@ const Recommended = (props: Props) => {
           Recommended Just For You!
         </h1>
 
-        <div className="p-4 gap-y-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-8 md:gap-y-12">
+        <div className="p-4 mt-4 gap-y-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-8 md:gap-y-12">
           {/* <!--Card 1--> */}
 
           {recs?.length > 0 &&
@@ -56,7 +56,7 @@ const Recommended = (props: Props) => {
                 <div className="" key={rec.id}>
                   <div
                     onClick={() => onRecClick(rec.id)}
-                    className="flex flex-col w-full hover:scale-110 ease-in duration-300 cursor-pointer"
+                    className="flex flex-col w-full hover:scale-105 ease-in duration-300 cursor-pointer"
                   >
                     <img
                       src={`https://source.unsplash.com/random/?${rec?.tags.join(

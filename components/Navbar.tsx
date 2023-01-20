@@ -14,6 +14,9 @@ const Navbar = ({ session }: Props) => {
   const [currTheme, setcurrTheme] = useState("");
   const router = useRouter();
 
+  localStorage.setItem("author", session?.user?.name || "");
+  localStorage.setItem("authorImage", session?.user?.image || "");
+
   const clickHandler = () => {
     console.log("clicked");
     if (localStorage.theme === "dark") localStorage.theme = "light";
