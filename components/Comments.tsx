@@ -33,7 +33,6 @@ const Comments = (props: Props) => {
     props?.blog?.comments?.push(data.result);
   };
 
-  console.log(comments);
   return (
     <div className="max-w-[1420px] mx-0 flex flex-col justify-center items-center p-4 dark:bg-gray-900 mt-12">
       <section className="w-full bg-white dark:bg-gray-900 py-8 lg:py-16">

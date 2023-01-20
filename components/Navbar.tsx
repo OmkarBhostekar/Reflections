@@ -19,7 +19,6 @@ const Navbar = ({ session }: Props) => {
   localStorage.setItem("isLoggedIn", session ? "true" : "false");
 
   const clickHandler = () => {
-    console.log("clicked");
     if (localStorage.theme === "dark") localStorage.theme = "light";
     else localStorage.theme = "dark";
     if (
@@ -38,6 +37,30 @@ const Navbar = ({ session }: Props) => {
   useEffect(() => {
     localStorage.setItem("userImage", session?.user?.image);
     localStorage.setItem("userName", session?.user?.name);
+    localStorage.setItem("userEmail", session?.user?.email);
+
+    // fetch(`/api/user/bookmark?userEmail=${session?.user?.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
+
+    // fetch(`/api/user/bookmark`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     userEmail: session?.user?.email,
+    //     blogId: "63c8518431ad3b98d781c00d",
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     // data.length = 6;
+    //     console.log(data);
+    //   });
+
     clickHandler();
   }, []);
 

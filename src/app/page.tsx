@@ -15,7 +15,6 @@ type Props = {};
 const Home = (props: Props) => {
   const router = useRouter();
   const clickHandler = () => {
-    console.log("clicked");
     if (localStorage.theme === "dark") localStorage.theme = "light";
     else localStorage.theme = "dark";
     if (
