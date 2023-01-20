@@ -1,14 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../utils/db";
 
-const getMyBlogs = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-) => {
+const getMyBlogs = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { userName } = req.query;
     const blogs = await prisma.blog.findMany({
-      where: { authors : userName }
+      // @ts-ignore
+      where: { authors: userName },
     });
     if (!blogs) {
       res.status(400).json({ message: "Blog doesn't exist" });

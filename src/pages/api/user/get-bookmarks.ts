@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../utils/db";
 import { compare } from "bcrypt";
@@ -5,16 +6,17 @@ const saltRounds = 10;
 
 const addBookmark = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { userEmail, blogId } = req.body;
+    const userEmail = req.query.userEmail as string;
+    const blogId = req.query.blogId as string;
     const user = await prisma.user.update({
       where: {
         email: userEmail,
       },
-      data : {
-        bookmarks : {
-          push : blogId
-        }
-      }
+      data: {
+        bookmarks: {
+          push: blogId,
+        },
+      },
     });
 
     if (!user) {
@@ -44,15 +46,15 @@ const getBookmarks = async (req: NextApiRequest, res: NextApiResponse) => {
     const { userEmail } = req.query;
     const user = await prisma.user.findFirst({
       where: {
-        email : userEmail,
+        email: userEmail,
       },
     });
-    
+
     if (!user) {
       res.status(400).json({ message: "User does not exist" });
       return;
     }
-    
+
     res.status(200).json(user.bookmarks);
   } catch (err) {
     console.log(err);
@@ -67,7 +69,7 @@ export default async function handler(
   const method = req.method;
   switch (method) {
     case "GET":
-      getBookmarks(req, res); 
+      getBookmarks(req, res);
       break;
     case "POST":
       break;

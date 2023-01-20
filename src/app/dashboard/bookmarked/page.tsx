@@ -1,14 +1,11 @@
-"use client"
+"use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Cardss from "components/Cards/Cardss";
 
-type Props = {
-  userEmail: String;
-};
+type Props = {};
 
 const Bookmarked = (props: Props) => {
-  
   const [userEmail, setUserEmail] = useState("");
   const [bookmarkedBlogs, setBookmarkedBlogs] = useState([]);
 
@@ -19,20 +16,17 @@ const Bookmarked = (props: Props) => {
     }
   }, [userEmail]);
 
-
   useEffect(() => {
-    if(userEmail.length>0){
+    if (userEmail.length > 0) {
       fetch(`/api/user/bookmark?userEmail=${userEmail}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setBookmarkedBlogs(data);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          setBookmarkedBlogs(data);
+        });
     }
   }, [userEmail]);
   return (
-    <section
-      className="bg-white dark:bg-gray-900 max-w-[1420px] mx-auto flex justify-between items-center p-4 mt-12"
-    >
+    <section className="bg-white dark:bg-gray-900 max-w-[1420px] mx-auto flex justify-between items-center p-4 mt-12">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
           <h1 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
@@ -44,7 +38,8 @@ const Bookmarked = (props: Props) => {
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          {bookmarkedBlogs && Array.isArray(bookmarkedBlogs) &&
+          {bookmarkedBlogs &&
+            Array.isArray(bookmarkedBlogs) &&
             bookmarkedBlogs.map((blog, id) => {
               return <Cardss key={id} blog={blog} fromBookmarked={true} />;
             })}

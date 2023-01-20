@@ -27,7 +27,7 @@ const Cardss = (props: any) => {
   const [isBookmarked, setIsBookmarked] = useState(true);
   const [isOwnBlog, setIsOwnBlog] = useState(true);
 
-  function deleteBlog(){
+  function deleteBlog() {
     // delete the blog.....
   }
   return (
@@ -94,10 +94,10 @@ const Cardss = (props: any) => {
           )}
           {fromOwnBlog && (
             <button
-            onClick={(e) => {
-              e.stopPropagation();
-              deleteBlog(!isBookmarked);
-            }}
+              onClick={(e) => {
+                e.stopPropagation();
+                // deleteBlog(!isBookmarked);
+              }}
               id="theme-toggle"
               type="button"
               className="text-red-500 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5 md:float-right md:mr-4"
@@ -134,7 +134,9 @@ const Cardss = (props: any) => {
             src={`https://api.dicebear.com/5.x/personas/svg?seed=${blog?.authors}}`}
             alt="Bonnie Green avatar"
           />
-          <span className="text-sm md:text-lg font-medium dark:text-white">{blog?.authors}</span>
+          <span className="text-sm md:text-lg font-medium dark:text-white">
+            {blog?.authors}
+          </span>
         </div>
         <div className="text-xs md:text-lg inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
           Read more

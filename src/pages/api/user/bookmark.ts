@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../utils/db";
 import { compare } from "bcrypt";

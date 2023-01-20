@@ -57,7 +57,7 @@ const Profile = (props: Props) => {
   ];
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
-      <UserCard userImage="" userName="" />
+      <UserCard userImage="" userName="" userEmail="" />
       <div className="w-full space-y-3 p-4">
         <h1 className="text-2xl lg:text-4xl font-bold text-black dark:text-white">
           Popular Blogs

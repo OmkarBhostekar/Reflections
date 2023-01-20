@@ -30,14 +30,14 @@ model Blog {
 }
 
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  avatar   String
-  email    String @unique
-  password String @default("")
-  name     String
-  role     String
-  blogs    Blog[]
-  bookmarks    String[]
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  avatar    String
+  email     String   @unique
+  password  String   @default("")
+  name      String
+  role      String
+  blogs     Blog[]
+  bookmarks String[]
 }
 
 model test {
