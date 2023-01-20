@@ -1,5 +1,6 @@
 import Blog from "@/types/Blog";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { title } from "process";
 import React from "react";
 
@@ -15,9 +16,13 @@ const formatDate = (date: string | undefined) => {
 };
 
 const Cardss = (props: Props) => {
+  const router = useRouter();
   const blog = props.blog;
   return (
-    <article className="card-zoom p-6 cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <article
+      onClick={() => router.push(`/blog/${blog?.id}`)}
+      className="card-zoom p-6 cursor-pointer bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+    >
       <div className="flex justify-between items-center mb-5 text-gray-500">
         <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
           <svg
@@ -52,10 +57,7 @@ const Cardss = (props: Props) => {
           />
           <span className="font-medium dark:text-white">{blog?.authors}</span>
         </div>
-        <Link
-          href={`/blog/${blog?.id}`}
-          className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
-        >
+        <div className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
           Read more
           <svg
             className="ml-2 w-4 h-4"
@@ -69,7 +71,7 @@ const Cardss = (props: Props) => {
               clip-rule="evenodd"
             ></path>
           </svg>
-        </Link>
+        </div>
       </div>
     </article>
   );

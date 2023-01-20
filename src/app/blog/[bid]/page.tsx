@@ -70,8 +70,8 @@ const BlogDetail = ({ params }: any) => {
   }, []);
 
   useEffect(() => {
-    if(bid){
-      localStorage.setItem("bid", bid)
+    if (bid) {
+      localStorage.setItem("bid", bid);
     }
   }, [bid]);
   const [scroll, setScroll] = useState("");
@@ -226,7 +226,7 @@ const BlogDetail = ({ params }: any) => {
           </div>
         </div>
       </div>
-      <Comments blog={blog}/>
+      <Comments blog={blog} />
     </div>
   );
 };

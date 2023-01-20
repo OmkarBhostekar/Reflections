@@ -5,26 +5,6 @@ import Cardss from "./Cards/Cardss";
 type Props = {};
 
 const Latest = (props: Props) => {
-  const blogs2 = [
-    {
-      genre: "Article",
-      dateOfPost: "14 days ago",
-      title: "How to quickly deploy a static website",
-      desc: "Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.",
-      autherImg:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png",
-      autherName: "Bonnie Green",
-    },
-    {
-      genre: "Article",
-      dateOfPost: "14 days ago",
-      title: "Our first project with React",
-      desc: "Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.",
-      autherImg:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
-      autherName: "Jese Leos",
-    },
-  ];
 
   const blogs = [
     {

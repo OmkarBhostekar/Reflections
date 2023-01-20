@@ -1,15 +1,17 @@
 import React from "react";
-type Props = {};
+type Props = {
+  userName : string,
+  userImage : string
+};
 
-const UserCard = (props: Props) => {
+const UserCard = ({userImage, userName}: Props) => {
   const data = {
     id: "1",
-    name: "Parteek Vishwakarma",
+    name: userName,
     email: "lastnamefirstname@gmail.com",
     about:
       "Here’s where you can share more about yourself: your history, work experience, accomplishments, interests, dreams, and more. You can even add images and use rich text to personalize your bio.",
-    image:
-      "https://www.cnet.com/a/img/resize/4bbb5d8eeffea0beb519f4f5a21192068d133c34/hub/2021/09/10/56cb167f-7bff-4076-9b00-d415067f5477/screenshot-2021-09-10-at-5-44-32-pm.png?auto=webp&fit=crop&height=900&width=1200",
+    image: userImage || "https://www.cnet.com/a/img/resize/4bbb5d8eeffea0beb519f4f5a21192068d133c34/hub/2021/09/10/56cb167f-7bff-4076-9b00-d415067f5477/screenshot-2021-09-10-at-5-44-32-pm.png?auto=webp&fit=crop&height=900&width=1200",
     followers: "100",
     following: "100",
     blogs: "100",
@@ -76,9 +78,9 @@ const UserCard = (props: Props) => {
         <button className="text-white w-32 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 p-2 rounded-md  ">
           Edit Profile
         </button>
-        <button className="text-white w-32 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 p-2 rounded-md">
+        {/* <button className="text-white w-32 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 p-2 rounded-md">
           Follow
-        </button>
+        </button> */}
       </div>
     </div>
   );

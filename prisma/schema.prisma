@@ -8,8 +8,8 @@ datasource db {
 }
 
 type Comment {
-  text        String
-  sentiment   String
+  text        String @default("")
+  sentiment   String @default("positive")
   author      String @default("")
   authorImage String @default("")
 }
