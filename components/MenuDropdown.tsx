@@ -15,7 +15,7 @@ const MenuDropdown = (props: Props) => {
       className="relative inline-block text-left flex items-center justify-center"
     >
       <Menu.Button>
-        <div className="hidden flex items-center md:block md:order-2">
+        <div className="flex items-center md:order-2">
           <button
             type="button"
             className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
