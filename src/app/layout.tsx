@@ -30,7 +30,9 @@ export default async function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
+      <head>
+        <title>Reflactions</title>
+      </head>
       <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
       <body className="wrapper flex flex-col dark:bg-[#05091a]">
         <div className="fixed w-screen bg-white dark:bg-[#05091a] z-10">
