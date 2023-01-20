@@ -14,38 +14,38 @@ const HeadLineCards = (props: Props) => {
     {
       img: MentalHealth.src,
       category: "Mental Health",
-      title: "Mental Health and fitness blogs",
-      desc: "Lorem ipsum dolor",
+      title: "Mental Health",
+      desc: "Mental Health and fitness blogs",
     },
     {
       img: Business.src,
       category: "Business",
       title: "Business blogs",
-      desc: "Lorem ipsum dolor",
+      desc: "Valuable insights and strategies for business.",
     },
     {
       img: Programming.src,
       category: "Programming",
       title: "Programming blogs",
-      desc: "Lorem ipsum dolor",
+      desc: "Dive into the world of programming with us.",
     },
     {
       img: Covid.src,
       category: "Covid 19",
       title: "Covid-19 Precautions",
-      desc: "Lorem ipsum dolor",
+      desc: "Latest developments and information related to COVID-19.",
     },
     {
       img: ML.src,
       category: "Machine Learning",
       title: "Machin Learning and AI",
-      desc: "Lorem ipsum dolor",
+      desc: "Unlock the power of Machine Learning with us.",
     },
     {
       img: Blockchain.src,
       category: "Blockchain",
       title: "Blockchain Technology",
-      desc: "Lorem ipsum dolor",
+      desc: "Join us as we navigate the exciting world of blockchain technology.",
     },
   ];
 
