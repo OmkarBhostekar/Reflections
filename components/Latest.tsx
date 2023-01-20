@@ -62,7 +62,7 @@ const Latest = (props: Props) => {
             LATEST BLOGS
           </h1>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            Welcome to our latest blog section! Here you`&#39;`ll find the most
+            Welcome to our latest blog section! Here you&#39;ll find the most
             recent posts from our community of bloggers.
           </p>
         </div>
