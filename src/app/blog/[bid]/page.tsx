@@ -9,6 +9,7 @@ import { TextToSpeech, useTts } from "tts-react";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Comments from "components/Comments";
+import { BsBookmarkCheckFill, BsBookmarkDash } from "react-icons/bs";
 type Props = {};
 
 const blogDetail = {
@@ -24,12 +25,20 @@ const blogDetail = {
 const BlogDetail = ({ params }: any) => {
   const play = () => {};
   const bid = params["bid"];
-  console.log(params["bid"]);
   const [blog, setBlog] = useState<Blog>();
   const [recs, setRecs] = useState<Blog[]>([]);
   const [summery, setSummery] = useState<string>("");
   const router = useRouter();
 
+  const [userEmail, setUserEmail] = useState("");
+
+  useEffect(() => {
+    const usrEmail = localStorage.getItem("userEmail");
+    if (usrEmail?.length > 0) {
+      setUserEmail(usrEmail);
+      fetchBookmarks();
+    }
+  }, [userEmail]);
   const fetchBlog = async () => {
     if (bid) {
       // @ts-ignore
@@ -47,8 +56,6 @@ const BlogDetail = ({ params }: any) => {
     }
   };
   const fetchSummary = async (text: string) => {
-    console.log("fetching summary");
-
     fetch(`/api/ml/summerizer`, {
       method: "POST",
       headers: {
@@ -61,6 +68,17 @@ const BlogDetail = ({ params }: any) => {
       .then((res) => res.json())
       .then((data) => setSummery(data.result));
   };
+
+  const fetchBookmarks = () => {
+    if (userEmail.length > 0) {
+      fetch(`/api/user/get-bookmarks?userEmail=${userEmail}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if(Array.isArray(data)) setIsLiked(data.includes(bid)) 
+        });
+    }
+  };
+
   useEffect(() => {
     if (blog && summery === "") fetchSummary(blog.text);
   }, [blog]);
@@ -101,6 +119,40 @@ const BlogDetail = ({ params }: any) => {
     router.push(`/blog/${id}`);
   };
 
+  const [isLiked, setIsLiked] = useState(false);
+  const addBookmarked = (bid: string) => {
+    setIsLiked(!isLiked);
+    fetch(`/api/user/bookmark`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userEmail: userEmail,
+        blogId: bid,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+  const deleteBookmarked = (bid: string) => {
+    setIsLiked(!isLiked);
+    fetch(`/api/user/bookmark`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userEmail: userEmail,
+        blogId: bid,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+      });
+  };
   return (
     <div className="flex flex-col">
       <div id="progressBarContainer">
@@ -152,20 +204,33 @@ const BlogDetail = ({ params }: any) => {
             <div className=" dark:text-[#D1CFDB] text-justify">{summery}</div>
           </div>
         )}
-        <div className="flex mt-8">
-          <img
-            className="h-20 w-20 rounded-full"
-            src={`https://api.dicebear.com/5.x/personas/svg?seed=${blog?.authors}}`}
-          />
-          <div className="flex flex-col justify-evenly ml-4">
-            <div className=""></div>
-            <div className="uppercase dark:text-white font-semibold">
-              {blog?.authors}
-            </div>
-            <div className="dark:text-[#D1CFDB] font-semibold">
-              {formatDate(blog?.timestamp)}
+        <div className="flex mt-8 justify-between">
+          <div className="flex mt-8 ">
+            <img
+              className="h-20 w-20 rounded-full"
+              src={`https://api.dicebear.com/5.x/personas/svg?seed=${blog?.authors}}`}
+            />
+            <div className="flex flex-col justify-evenly ml-4">
+              <div className=""></div>
+              <div className="uppercase dark:text-white font-semibold">
+                {blog?.authors}
+              </div>
+              <div className="dark:text-[#D1CFDB] font-semibold">
+                {formatDate(blog?.timestamp)}
+              </div>
             </div>
           </div>
+          {isLiked  ? (
+            <BsBookmarkCheckFill
+              className="h-10 w-10 dark:text-white"
+              onClick={() => deleteBookmarked(blog.id)}
+            />
+          ) : (
+            <BsBookmarkDash
+              className="h-10 w-10 dark:text-white"
+              onClick={() => addBookmarked(blog.id)}
+            />
+          )}
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
         <div className="mt-6 text-justify new-line dark:text-[#D1CFDB]">

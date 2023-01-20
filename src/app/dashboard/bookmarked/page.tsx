@@ -25,7 +25,6 @@ const Bookmarked = (props: Props) => {
       .then((res) => res.json())
       .then((data) => {
         setBookmarkedBlogs(data);
-        console.log( "bookmarked", data)
       });
   }, [userEmail]);
   return (
