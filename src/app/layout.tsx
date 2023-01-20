@@ -5,15 +5,12 @@ import Login from "components/Login";
 import Navbar from "components/Navbar";
 import Script from "next/script";
 import Footer from "components/Footer";
-import { Roboto} from "@next/font/google" ;
+import { Roboto } from "@next/font/google";
 
 const roboto = Roboto({
-  subsets:["latin"],
-  weight: ['400', '700'],
- 
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
-
-
 
 export default async function RootLayout({
   children,
@@ -31,7 +28,7 @@ export default async function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head>
-        <title>Reflactions</title>
+        <title>Reflections</title>
       </head>
       <Script src="../path/to/flowbite/dist/flowbite.bundle.js"></Script>
       <body className="wrapper flex flex-col dark:bg-[#05091a]">
