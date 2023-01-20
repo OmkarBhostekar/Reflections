@@ -4,18 +4,13 @@ import { useRouter } from "next/navigation";
 import { title } from "process";
 import React from "react";
 
-type Props = {
-  key: number;
-  blog: Blog;
-};
-
 const formatDate = (date: string | undefined) => {
   if (date === undefined) return "";
   const d = new Date(date!);
   return d.toDateString();
 };
 
-const Cardss = (props: Props) => {
+const Cardss = (props: any) => {
   const router = useRouter();
   const blog = props.blog;
   return (

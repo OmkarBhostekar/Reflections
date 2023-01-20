@@ -16,7 +16,7 @@ interface Inputs {
   email: string;
   password: string;
 }
-const page = ({ providers }: Props) => {
+const Login = ({ providers }: Props) => {
   const {
     register,
     handleSubmit,
@@ -86,9 +86,10 @@ const page = ({ providers }: Props) => {
             </div> */}
             <div className="">
               {providers &&
-                Object.values(providers).map((provider) =>
+                Object.values(providers).map((provider, id) =>
                   provider.name === "Google" ? (
                     <button
+                      key={id}
                       onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                       className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
@@ -99,6 +100,7 @@ const page = ({ providers }: Props) => {
                     </button>
                   ) : (
                     <button
+                      key={id}
                       onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                       className="bg-white border py-3 w-1/2 rounded-xl mt-5 flex justify-center items-center text-sm  duration-300 text-[#002D74]"
                     >
@@ -130,4 +132,4 @@ const page = ({ providers }: Props) => {
   );
 };
 
-export default page;
+export default Login;

@@ -7,6 +7,7 @@ import Latest from "components/Latest";
 import Recommended from "components/Recommended";
 import UserCard from "components/UserCard";
 import React from "react";
+import Blog from "@/types/Blog";
 type Props = {};
 
 const Profile = (props: Props) => {
@@ -56,13 +57,13 @@ const Profile = (props: Props) => {
   ];
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
-      <UserCard />
+      <UserCard userImage="" userName="" />
       <div className="w-full space-y-3 p-4">
         <h1 className="text-2xl lg:text-4xl font-bold text-black dark:text-white">
           Popular Blogs
         </h1>
 
-        {size === 0 ? (
+        {/* {size === 0 ? (
           userId === user ? (
             <>
               <p className="text-2xl">Your Blogs,</p>
@@ -76,16 +77,16 @@ const Profile = (props: Props) => {
               </p>
             </>
           )
-        ) : (
-          <div className="py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* <!--Card 1--> */}
+        ) : ( */}
+        <div className="py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* <!--Card 1--> */}
 
-            {blogs &&
-              blogs?.map((blog: Blog, id) => {
-                return <Cards key={id} blog={blog} />;
-              })}
-          </div>
-        )}
+          {blogs &&
+            blogs?.map((blog, id) => {
+              return <Cards key={id} blog={blog} />;
+            })}
+        </div>
+        {/* )} */}
       </div>
     </div>
   );

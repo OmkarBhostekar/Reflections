@@ -7,13 +7,15 @@ const page = (props: Props) => {
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
       <div className="w-[98%] py-12 md:w-[95%] lg:w-[60%]">
-        <h1 className="text-2xl font-medium mb-6 text-center">Privacy Policy</h1>
+        <h1 className="text-2xl font-medium mb-6 text-center">
+          Privacy Policy
+        </h1>
         <h2 className="text-xl font-medium">Information We Collect</h2>
         <p className="text-base leading-relaxed">
           At Reflection, we are committed to protecting the privacy and security
           of our users. This Privacy Policy explains how we collect, use, and
           share information about you when you use our website, services, and
-          mobile applications (collectively, the "Services").
+          mobile applications (collectively, the Services).
         </p>
         <ul className="list-decimal text-base leading-relaxed">
           <li>

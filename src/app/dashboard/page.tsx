@@ -101,20 +101,22 @@ const Dashboard = (props: Props) => {
       url: "https://medium.datadriveninvestor.com/is-it-hard-to-build-a-blockchain-from-scratch-23bac74e4f",
     },
   ];
-  const [userImage, setUserImage] = useState("https://www.cnet.com/a/img/resize/4bbb5d8eeffea0beb519f4f5a21192068d133c34/hub/2021/09/10/56cb167f-7bff-4076-9b00-d415067f5477/screenshot-2021-09-10-at-5-44-32-pm.png?auto=webp&fit=crop&height=900&width=1200");
+  const [userImage, setUserImage] = useState(
+    "https://www.cnet.com/a/img/resize/4bbb5d8eeffea0beb519f4f5a21192068d133c34/hub/2021/09/10/56cb167f-7bff-4076-9b00-d415067f5477/screenshot-2021-09-10-at-5-44-32-pm.png?auto=webp&fit=crop&height=900&width=1200"
+  );
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const usrImg = localStorage.getItem("userImage");
-    if (usrImg?.length>0) {
+    if (usrImg?.length > 0) {
       setUserImage(usrImg);
     }
     const usrName = localStorage.getItem("userName");
-    if (usrName?.length>0) {
+    if (usrName?.length > 0) {
       setUserName(usrName);
     }
   }, []);
-console.log(userName)
+  console.log(userName);
   return (
     <div className="max-w-[1420px] mx-auto flex flex-col justify-center items-center p-4">
       <UserCard userImage={userImage} userName={userName} />
@@ -123,7 +125,7 @@ console.log(userName)
           Popular Blogs
         </h1>
 
-        {size === 0 ? (
+        {/* {false ? (
           userId === user ? (
             <>
               <p className="text-2xl">Your Blogs,</p>
@@ -137,14 +139,14 @@ console.log(userName)
               </p>
             </>
           )
-        ) : (
-          <div className="py-6 grid gap-8 lg:grid-cols-2">
-            {blogs &&
-              blogs.map((blog, id) => {
-                return <Cardss key={id} blog={blog} />;
-              })}
-          </div>
-        )}
+        ) : ( */}
+        <div className="py-6 grid gap-8 lg:grid-cols-2">
+          {blogs &&
+            blogs.map((blog, id) => {
+              return <Cardss key={id} blog={blog} />;
+            })}
+        </div>
+        {/* )} */}
       </div>
     </div>
   );
