@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Cardss from "components/Cards/Cardss";
 import DeleteCard from "components/Cards/DeleteCard";
-import Cards from "components/Cards/Cards";
 
 type Props = {};
 
@@ -44,7 +43,7 @@ const MyBlogs = (props: Props) => {
           {myblogs &&
             Array.isArray(myblogs) &&
             myblogs.map((blog, id) => {
-              return <Cardss key={id} blog={blog} fromOwnBlog={true} />;
+              return <DeleteCard key={id} blog={blog} fromOwnBlog={true} />;
             })}
         </div>
       </div>
