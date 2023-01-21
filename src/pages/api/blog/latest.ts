@@ -4,6 +4,18 @@ import { prisma } from "../../../utils/db";
 const getLatest = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const latestBlogs = await prisma.blog.findMany({
+      where: {
+        id: {
+          in: [
+            "63c8518931ad3b98d781c5f9",
+            "63c8519531ad3b98d781cdd0",
+            "63c8518931ad3b98d781c3a4",
+            "63c8518f31ad3b98d781c724",
+            "63c8518431ad3b98d781bf85",
+            "63c8518931ad3b98d781c3d8",
+          ],
+        },
+      },
       orderBy: {
         timestamp: "desc",
       },
