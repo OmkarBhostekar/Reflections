@@ -24,7 +24,7 @@ const DeleteCard = (props: any) => {
   const fromBookmarked = props.fromBookmarked;
   const fromOwnBlog = props.fromOwnBlog;
   const [isBookmarked, setIsBookmarked] = useState(true);
-  const [blogDelete, setBlogDelete] = useState(false);
+  const [blogDelete, setBlogDelete] = useState(true);
 
   const [userEmail, setuserEmail] = useState("");
 
